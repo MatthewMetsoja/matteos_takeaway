@@ -1,0 +1,10 @@
+{
+
+    "require": {
+        "stripe/stripe-php": "^6.38",
+        "vlucas/phpdotenv": "^3.3",
+        "phpmailer/phpmailer": "^6.0",
+        "monolog/monolog": "^1.24"
+    }
+
+}

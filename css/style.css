@@ -1,0 +1,1501 @@
+body{
+    position: relative;
+}
+
+
+
+.navbar{
+    height: 85px !important;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    padding: 15px;
+    border-image: url('../images/navigation_border.jpg') 50 round;
+    background: black !important;
+}
+
+#nav_brand{
+   
+    position: absolute;
+    float: left !important;
+    max-width: 70px !important;
+    max-height: 80px !important;
+    margin-top: -40px;
+    margin-left: -10px;
+    margin-right: 7% !important;
+
+}
+
+
+a.nav-link{
+    color: white !important;
+    font-family: 'Italianno', cursive;
+    margin-top: 0px !important;
+}
+
+
+
+
+
+#basket_counter{
+    border: 0.5px solid#faec72; 
+    border-radius: 7px;
+    padding: 3px 5px 2px;
+    /* font-family: 'Italianno', cursive; */
+    background: red;
+    color: #faec72; 
+}
+
+#phone_sign{
+    font-size: 0.7em;
+}
+
+a.nav-link{
+    padding: 5px;
+    padding-right: 12px;
+    font-size: 30px;
+    margin-top: -7px !important;
+    margin-right: -2px;
+}
+
+
+
+a.nav-link:hover{
+    color: rgb(235, 15, 15) !important;
+}
+
+a.nav-link.active{
+    color: rgb(235, 15, 15) !important;
+}
+
+#back_to_menu_link{
+    color: white;
+margin-top: -10px;
+}
+
+#kfs_order_nav{
+height: 50px;
+width: 50px;
+margin-top: -18px;
+}
+
+
+#our_number_nav_link{
+    font-size: 2.2em;
+    margin-top: -10px !important;
+}
+
+#checkout_btn{
+    border: 1px solid black;
+}
+#onto_payment_btn{
+    border: 1px solid black;
+}
+
+#invis_banner{
+    position: fixed;
+    margin-top: 60px;
+    border: 2px solid black !important;
+    border-radius: 5px;
+    max-width: 200px;
+
+}
+
+.jumbotron{
+ background-color: #faec72; 
+    height: 500px;
+    margin-top: 30px !important;
+    border-bottom: 13px solid transparent;
+    border-image: url('../images/navigation_border.jpg') 50 round;
+    padding-top: 50px !important; 
+}
+
+#order_jumbo{
+    height: 260px !important;
+    padding-top: 80px !important;
+    background: #fa7672;
+    color: white; 
+}
+
+#payment_jumbo{
+    height: 220px;
+    padding-top: 70px !important;
+    background: #a8fa72;
+    color: rgb(0, 0, 0); 
+}
+
+#main_jumbo{
+ 
+    padding-top: 80px !important;
+    
+}
+
+
+#success_jumbo{
+    height: 270px !important;
+    padding-top: 75px !important;  
+ }
+
+#jumbo_belly{
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+}
+
+
+.jumbo_icon_phone{
+    height: 40px;
+    width: 30px;
+}
+
+.it{
+    font-family: 'Italianno', cursive;
+    text-align: center;
+}
+
+#payment_title, #order_title {
+    font-size: 4em !important;
+}
+
+.menu_title{
+    font-family: 'Italianno', cursive;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+#payment_title #order_title{
+    font-size: 4.3em;
+}
+
+#kfs_logo{
+    width: 60px;
+    height: 60px;
+    margin-top: -10px;
+}
+
+.menu_head{
+ 
+    font-family: 'Luckiest Guy', cursive;
+
+    font-size: 1.5em;
+  
+}
+
+.menu_icon{
+    text-align: center;
+    height: 50px;
+    width: 70px;
+    margin-top: -20px;
+}
+
+.menu_icon_phone{
+    text-align: center;
+    height: 40px;
+    width: 50px;
+    margin-top: -25px;
+}
+
+.menu_icon_cake{
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    margin-top: -25px;
+}
+
+.menu_icon_drink{
+    text-align: center;
+    height: 60px;
+    width: 50px;
+    margin-top: -25px;
+}
+
+
+footer{
+    margin-top: 50px !important;
+    margin-bottom: 20px !important;
+    height: 85px !important;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    padding: 15px;
+    border-image: url('../images/navigation_border.jpg') 50 round;
+    background: black !important;
+    color: white !important;
+}
+
+#copy{
+   margin-top: -5px;
+    font-family: 'Italianno', cursive;
+    font-size: 2em;
+}
+
+
+/* scroll spy and fixed navbar offset fix */
+span.anchor {
+    margin-top: -90px; /* height of nav, in this case 90px */
+    display: block;
+    height: 90px; /* height of nav, in this case 90px */
+    visibility: hidden;
+    position: relative;
+    overflow-y: scroll;
+}
+
+#main_menu_div{
+    margin-bottom: 130px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+#view_basket_contain{ 
+    padding-top: 160px !important;
+  
+  }
+
+#order_contain{
+    min-height: 600px;
+}
+
+
+
+#back_to_menu_link:hover{
+    color: red;
+}
+
+
+#onto_payment_btn:hover{
+    border: 1px solid rgb(0, 0, 0);
+    background: #056305;
+}
+
+#kfs_order_nav{
+    margin-top: -8px !important;
+}
+
+#order_title{
+    color: black;
+}
+
+ .plus_1{
+    background: green;
+    color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 2px 4px ;
+    margin-left: 10px;
+ }
+
+ .plus_1:hover{
+    background: rgb(67, 211, 67);
+    cursor: pointer;
+ }
+ 
+ .minus_1{
+    background: red;
+    color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 2px 2px 2px 5px;
+    margin-right: 10px;
+ }
+
+
+ .minus_1:hover{
+    background: rgb(252, 83, 83);
+    cursor: pointer;
+ }
+ 
+ #fake_plus_1{
+    background: green;
+    color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 2px ;
+ }
+
+ #fake_minus_1{
+    background: red;
+    color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 2px;
+ }
+ 
+
+#order_summary_div{
+    margin-right: 100px;
+}
+
+
+
+/**
+STRIPE PAYMENT
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+ .StripeElement {
+    box-sizing: border-box;
+  
+    height: 40px;
+  
+    padding: 10px 12px;
+  
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+  
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+  
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #41a0ff;
+  }
+  
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+  
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+
+
+
+  #login_contain{
+    padding-top: 130px !important;
+}
+ 
+
+  #login_form{
+    margin-top: 40px;
+    margin-bottom: 45vh;
+    border: 12px solid transparent; 
+    border-image: url('../images/navigation_border.jpg') 50 round; 
+    background: black;
+    color: white;
+    padding: 30px !important; 
+  }
+
+#login_title{
+    font-family: 'Luckiest Guy', cursive;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+    
+    
+    
+    
+    
+    
+    
+    /* xxxxlarge */ 
+@media only screen and (max-width: 1800px) {
+    
+   
+ #contact_link{
+     margin-top: -18px !important;
+ }
+
+
+ #main_jumbo{ 
+     margin-top: 80px !important;
+     height: 420px !important;  
+     padding-top: 30px !important;
+ }
+
+ #order_jumbo{
+     height: 270px !important;
+     margin-top: 20px !important;    
+ }
+
+ #payment_jumbo{
+    height: 200px !important;
+    padding-top: 70px !important;
+  }
+ 
+   #success_jumbo{
+     height: 270px !important;
+     padding-top: 75px !important;  
+  }
+ 
+     #kfs_logo{
+         width: 45px;
+         height: 50px;
+         margin-top: -17px;
+     }
+
+
+     #back_to_menu_link{
+         margin-top: -7px !important;
+     }
+ 
+     #kfs_order_nav{
+         margin-top: -8px !important;
+     }
+  
+        
+     #checkout_btn{
+        margin-top: -10px !important;
+    }
+ 
+    
+    #onto_payment_btn{
+        font-size: 15px !important;
+    
+      }
+ 
+      #payment_title, #order_title{
+          font-size: 3.5em !important ;
+      }
+ 
+        .jumbo_icon_phone{
+         height: 30px;
+         width: 30px;
+     }
+ 
+        .menu_title{
+         font-size: 3.2em !important;
+       }
+ 
+       .menu_icon{
+         text-align: center;
+         height: 40px;
+         width: 60px;
+         margin-top: -25px;
+     }
+ 
+        .menu_icon_drink{
+         text-align: center;
+         height: 70px;
+         width: 50px;
+         margin-top: -25px;
+     }
+ 
+     .menu_icon_cake{
+         text-align: center;
+         height: 70px;
+         width: 90px;
+         margin-top: -20px;
+     }
+ 
+     .menu_icon_phone{
+         text-align: center;
+         height: 50px;
+         width: 60px;
+         margin-top: -40px;
+         margin-left: 15px;
+     }
+ 
+ 
+     #our_number_nav_link{
+         font-size: 30px !important;
+         margin-top: -5px !important;
+     }
+    
+
+}
+
+
+ /* xxlarge */ 
+@media only screen and (max-width: 1348px) {
+    a.nav-link{
+        padding-right: 6px !important;
+        font-size: 25px !important;
+        margin-top: -5px !important;
+        margin-right: -2px !important;
+    }
+    
+
+ #main_jumbo{ 
+     height: 450px !important;   
+ }
+
+ #order_jumbo{
+    height: 270px !important;
+    margin-top: 10px !important;    
+}
+
+  
+ 
+     #kfs_logo{
+         width: 45px;
+         height: 50px;
+         margin-top: -17px;
+     }
+
+
+     #back_to_menu_link{
+         margin-top: -7px !important;
+     }
+ 
+     #kfs_order_nav{
+         margin-top: -8px !important;
+     }
+        
+   
+    
+    #onto_payment_btn{
+        font-size: 15px !important;
+    
+      }
+ 
+      #payment_title, #order_title {
+          font-size: 3.5em !important ;
+      }
+ 
+        .jumbo_icon_phone{
+         height: 30px;
+         width: 30px;
+     }
+ 
+        .menu_title{
+         font-size: 3em !important;
+       }
+ 
+      
+ 
+ 
+     #our_number_nav_link{
+         font-size: 30px !important;
+         margin-top: -5px !important;
+     }
+
+}
+
+
+    /* xlarge */ 
+@media only screen and (max-width: 1271px) {
+
+  
+
+ #contact_link{
+     margin-top: -18px;
+ }
+
+
+ #main_jumbo{ 
+     height: 470px !important;  
+ }
+
+ #order_jumbo{
+    margin-top: 15px !important;    
+}
+
+ #payment_jumbo{
+    height: 220px !important;
+    padding-top: 60px !important;
+  }
+ 
+  
+ 
+     #kfs_logo{
+         width: 45px;
+         height: 50px;
+         margin-top: -17px;
+     }
+
+
+     #back_to_menu_link{
+         margin-top: -7px !important;
+     }
+ 
+     #kfs_order_nav{
+         margin-top: -8px !important;
+     }
+  
+        
+    #onto_payment_btn{
+        font-size: 15px !important;
+    
+      }
+ 
+      #payment_title, #order_title {
+          font-size: 3.5em !important ;
+      }
+ 
+        .jumbo_icon_phone{
+         height: 30px;
+         width: 30px;
+     }
+ 
+        .menu_title{
+         font-size: 3em !important;
+       }
+ 
+ 
+
+ 
+     #our_number_nav_link{
+         font-size: 30px !important;
+         margin-top: -5px !important;
+     }
+
+}
+
+ /* lg */
+@media only screen and (max-width: 991px) {
+
+ #order_jumbo{
+    height: 300px !important;
+    margin-top: 15px !important;    
+}
+
+
+ #payment_jumbo{
+    height: 230px !important;
+  }
+ 
+
+     #back_to_menu_link{
+         margin-top: -7px !important;
+     }
+ 
+     #kfs_order_nav{
+         margin-top: -8px !important;
+     }
+  
+    
+    #onto_payment_btn{
+        font-size: 15px !important;
+    
+      }
+ 
+      #payment_title, #order_title{
+          font-size: 3.5em !important ;
+      }
+ 
+        .jumbo_icon_phone{
+         height: 30px;
+         width: 30px;
+     }
+ 
+        .menu_title{
+         font-size: 3em !important;
+       }
+ 
+ 
+ 
+     #our_number_nav_link{
+         font-size: 30px !important;
+         margin-top: -5px !important;
+     }
+
+}
+
+
+ /* md */
+ @media only screen and (max-width: 901px) {
+
+    a.nav-link{
+        padding-right: 5px !important;
+    }
+    
+    #checkout_btn {
+        margin-top: -7px !important;
+    }
+
+ #main_jumbo{ 
+     height: 500px !important;  
+ }
+
+ #order_jumbo{
+    height: 280px !important;
+    margin-top: 15px !important;    
+}
+
+
+ #payment_jumbo{
+    padding-top: 70px !important;
+  }
+ 
+     #back_to_menu_link{
+         margin-top: -7px !important;
+     }
+ 
+     #kfs_order_nav{
+         margin-top: -8px !important;
+     }
+    
+    #onto_payment_btn{
+        font-size: 15px !important;
+    
+      }
+ 
+      #payment_title, #order_title {
+        font-size: 2.5em !important ;
+    }   
+ 
+        .jumbo_icon_phone{
+         height: 30px;
+         width: 30px;
+     }
+ 
+        .menu_title{
+         font-size: 2.7em !important;
+       }
+ 
+ 
+ 
+     #our_number_nav_link{
+         font-size: 30px !important;
+         margin-top: -5px !important;
+     }
+
+   
+}
+
+@media only screen and (max-width: 775px) {
+  
+
+  a.nav-link{
+        padding-right: 3px !important;
+        font-size: 20px !important;
+    }
+    
+    #checkout_btn{
+font-size: 12px !important;
+
+ }
+
+ #main_jumbo{ 
+     height: 510px !important;  
+ }
+
+
+ #order_jumbo{
+    height: 310px !important;
+    margin-top: 15px !important;    
+}
+
+
+
+
+     #back_to_menu_link{
+         margin-top: -7px !important;
+     }
+ 
+     #kfs_order_nav{
+         margin-top: -8px !important;
+     }
+  
+    
+    #onto_payment_btn{
+        font-size: 15px !important;
+    
+      }
+ 
+        .jumbo_icon_phone{
+         height: 30px;
+         width: 30px;
+     }
+ 
+ 
+ 
+     #our_number_nav_link{
+         font-size: 30px !important;
+         margin-top: -5px !important;
+     }
+
+}
+
+
+
+
+
+@media only screen and (max-width: 667px) {
+       
+    #main_jumbo{ 
+        height: 540px !important; 
+        padding-top: 50px !important;  
+    }
+
+    #order_jumbo{
+        height: 335px !important;
+        margin-top: 10px !important;    
+    }
+
+    #payment_jumbo{
+        height: 250px !important;
+      }
+    
+      #success_jumbo{
+        padding-top: 68px !important;  
+     }
+    
+
+        #back_to_menu_link{
+            margin-top: -7px !important;
+        }
+    
+        #kfs_order_nav{
+            margin-top: -8px !important;
+        }
+     
+           
+           a.nav-link{
+               font-size: 20px !important;
+               margin-top: -3px !important;
+           }
+           
+      
+        #checkout_btn{
+            position: fixed !important;
+            margin-top: 60px !important;
+            font-size: 15px !important;
+         
+        }
+    
+
+           #invis_banner{
+       position: absolute !important;
+       margin-top: 80px !important;
+       margin-left: 57vw !important;
+       border: 2px solid black !important;
+       border-radius: 5px !important;
+       max-width: 200px !important;
+   
+   }
+       
+       #onto_payment_btn{
+           font-size: 15px !important;
+       
+         }
+    
+           
+           .menu_title{
+            font-size: 2.5em !important;
+          }
+    
+          .menu_icon{
+            text-align: center;
+            height: 35px !important;
+            width: 45px !important;
+            margin-top: -27px !important;
+        }
+    
+           .menu_icon_drink{
+            text-align: center !important;
+            height: 55px !important;
+            width: 50px !important;
+            margin-top: -23px !important;
+        }
+    
+        .menu_icon_cake{
+            text-align: center;
+            height: 50px !important;
+            width: 70px !important;
+            margin-top: -20px !important;
+        }
+    
+    
+        #our_number_nav_link{
+            font-size: 30px !important;
+            margin-top: -5px !important;
+        }
+    
+
+        .minus_1{
+            margin-right: 4px !important;
+         }
+         .plus_1{
+            margin-left: 4px !important;
+         }
+
+}
+
+
+
+
+
+ /*  Small */
+ @media only screen and (max-width: 575px) {
+   
+    #back_to_menu_link{
+        margin-top: -7px !important;
+    }
+
+    #kfs_order_nav{
+        margin-top: -8px !important;
+    }
+
+    #order_jumbo{
+        height: 350px !important;
+        margin-top: 20px !important;    
+    }
+
+    #payment_jumbo{
+        height: 270px !important;
+        padding-top: 80px !important;
+      }
+    
+      #success_jumbo{
+        height: 300px !important;
+     }
+
+     #kfs_logo{
+        width: 45px !important;
+        height: 45px !important;
+        margin-top: -25px !important;
+    }
+   
+       .jumbo_icon_phone{
+        height: 30px;
+        width: 30px;
+    }
+
+       .menu_title{
+        font-size: 2.2em !important;
+      }
+
+      .menu_icon{
+        text-align: center;
+        height: 50px;
+        width: 90px;
+        margin-top: -35px;
+    }
+
+       .menu_icon_drink{
+        text-align: center;
+        height: 80px;
+        width: 60px;
+        margin-top: -40px;
+    }
+
+    .menu_icon_cake{
+        text-align: center;
+        height: 90px;
+        width: 100px;
+        margin-top: -40px;
+    }
+
+    .menu_icon_phone{
+        text-align: center;
+        height: 50px;
+        width: 60px;
+        margin-top: -40px;
+        margin-left: 15px;
+    }
+
+
+    #our_number_nav_link{
+        font-size: 30px !important;
+        margin-top: -5px !important;
+    }
+
+   
+
+
+}
+
+
+
+/*  Xsmall */
+@media only screen and (max-width: 552px) {
+    
+    a.nav-link{
+        font-size: 19px !important;
+    }
+
+    #back_to_menu_link{
+        margin-top: 0px !important;
+        font-size: 1.2em !important;
+    }
+    
+    #checkout_btn{
+        font-size: 13px !important; 
+        /* margin-left: 68vw !important; */
+    }
+
+   
+    #main_jumbo{ 
+        height: 600px !important;  
+    }
+
+    #order_jumbo{
+        height: 360px !important;
+        margin-top: 20px !important;    
+    }
+
+    
+     #kfs_logo{
+        width: 35px;
+        height: 35px;
+        margin-top: -17px;
+    }
+   
+
+   
+   #onto_payment_btn{
+       font-size: 10px;
+   
+     }
+   
+     #back_to_menu_link{
+      
+       position: absolute;
+       font-size: 15px;
+       /* margin-top: -30px; */
+       margin-left: -5px;
+       margin-right: 7% !important;
+   
+   }
+   
+   #our_number_nav_link{
+       font-size: 30px !important;
+       margin-top: -9px !important;
+   }
+   
+   #kfs_order_nav{
+      display: none;
+   }
+   
+   #invis_banner{
+       position: absolute;
+       margin-top: 110px;
+       margin-left: 50vw;
+       border: 2px solid black !important;
+       border-radius: 5px;
+       max-width: 200px;
+   
+   }
+   
+   
+   .menu_title{
+       font-size: 2em !important;
+   
+   }
+
+     /* delete all items btn */
+     .remove_all{
+        font-size: 10px !important;
+        padding: 2px !important;
+        }
+      
+      
+       .plus_1{
+           
+           padding: 1px 2px !important ;
+           margin-left: 4px !important;
+        }
+       
+       
+        .minus_1{
+       
+           padding: 1px 1px 1px 2px !important;
+           margin-right: 4px !important;
+        }
+   
+
+}
+
+/* mobiles 458 - 499 */
+@media only screen and (max-width: 499px){
+
+    a.nav-link{
+        padding: 10px !important;
+        font-size: 25px !important;
+        margin-top: -30px !important;
+        line-height: 42px !important;
+    }
+    
+    
+    #checkout_btn{
+        margin-top: 57px !important;
+        font-size: 11px !important; 
+    }
+
+
+    #main_jumbo{
+        height: 640px !important;  
+        padding-top: 50px !important; 
+    }
+
+    #order_jumbo{
+        height: 400px !important;
+        margin-top: 20px !important;    
+    }
+    
+      #success_jumbo{
+        height: 325px !important;
+     }
+
+
+   
+   
+
+   
+   #onto_payment_btn{
+       font-size: 10px !important;
+   
+     }
+   
+     #back_to_menu_link{
+      
+       position: absolute !important;
+       font-size: 15px !important;
+       margin-left: -5px !important;
+       margin-right: 7% !important;
+   
+   }
+   
+   #our_number_nav_link{
+       font-size: 30px !important;
+       margin-top: -8px !important;
+   }
+   
+   #kfs_order_nav{
+      display: none !important;
+   }
+   
+   
+   .menu_head{
+    
+       font-size: 1.3em !important;
+     
+   }
+   
+    #order_table{
+    font-size: 11px !important;
+    }
+
+  
+
+
+}
+
+
+
+
+
+/* mobiles 400 - 499 */
+@media only screen and (max-width: 458px){
+
+
+    #main_jumbo{
+        height: 710px !important;  
+        padding-top: 50px !important; 
+    }
+
+
+
+}
+
+
+
+
+
+/* mobiles 358 - 400 */
+@media only screen and (max-width: 399px){
+    a.nav-link{
+        padding: 3px !important;
+        padding-right: 10px !important;
+        font-size: 20px !important;
+        margin-top: -20px !important;
+    }
+
+
+    #main_jumbo{
+        height: 630px !important; 
+    }
+
+    #order_jumbo{
+        height: 430px !important;
+        margin-top: 20px !important;    
+    }
+
+    #payment_jumbo{
+        height: 270px !important;
+        padding-top: 70px !important;
+      }
+    
+      #success_jumbo{
+         height: 350px !important;
+         padding-top: 60px !important;  
+     }
+
+
+     #kfs_logo{
+        width: 35px;
+        height: 35px;
+        margin-top: -17px;
+    }
+      
+   #onto_payment_btn{
+       font-size: 10px !important;
+   
+     }
+   
+     #back_to_menu_link{
+      
+       position: absolute;
+       font-size: 15px;
+       margin-left: -5px;
+       margin-right: 7% !important;
+   
+   }
+   
+   #our_number_nav_link{
+       font-size: 30px !important;
+       margin-top: -7px !important;
+   }
+   
+   #kfs_order_nav{
+       display: none;
+   }
+   
+   #invis_banner{
+       position: absolute;
+       margin-top: 110px;
+       margin-left: 50vw;
+       border: 2px solid black !important;
+       border-radius: 5px;
+       max-width: 200px;
+   
+   }
+   
+   
+  
+   
+   #jumbo_intro_text{
+    font-size: 1.1em;
+    line-height: 18px;
+    margin-top: -10px;
+   }
+
+   #jumbo_intro_2{
+    font-size: 1.1em;
+    line-height: 20px;
+    padding-bottom: 10px;
+   }
+
+   .jumbo_icon_phone{
+       height: 30px;
+       width: 30px;
+   }
+   
+   
+   .menu_title{
+       font-size: 1.8em !important;
+   
+   }
+   
+   .menu_icon{
+       text-align: center;
+       height: 50px;
+       width: 70px;
+       margin-top: -20px;
+   }
+   
+   .menu_icon_phone{
+       text-align: center;
+       height: 40px;
+       width: 50px;
+       margin-top: -25px;
+   }
+   
+   .menu_icon_cake{
+       text-align: center;
+       height: 80px;
+       width: 80px;
+       margin-top: -25px;
+   }
+   
+   .menu_icon_drink{
+       text-align: center;
+       height: 60px;
+       width: 50px;
+       margin-top: -25px;
+   }
+   
+   .menu_head{
+    
+       font-size: 1.3em;
+     
+   }
+   
+    #order_table{
+        font-size: 10px !important;
+    }
+
+    /* delete all items btn */
+    .remove_all{
+    font-size: 10px !important;
+    padding: 2px !important;
+    }
+
+
+   .plus_1{
+       
+       padding: 1px 2px ;
+       margin-left: 4px;
+    }
+   
+   
+    .minus_1{
+   
+       padding: 1px 1px 1px 2px;
+       margin-right: 4px;
+    }
+
+
+}
+
+ /* mobiles iphone5 320 */
+ @media only screen and (max-width: 357px) {
+    #main_jumbo{
+        
+        height: 700px !important;
+        
+    }
+
+    #order_jumbo{
+        /* padding-top: 35px; */
+        /* margin-top: 60px !important;  */
+        height: 370px !important;    
+    }
+
+    #payment_jumbo{
+        margin-top: 55px !important; 
+        padding-top: 40px !important;
+        height: 270px !important;
+      }
+    
+      #success_jumbo{
+         height: 380px !important;
+     }
+     
+
+     #kfs_logo{
+        width: 35px;
+        height: 35px;
+        margin-top: -17px;
+    }
+   
+    #checkout_btn{
+       position: relative;
+       margin-top: -2px;
+       border: 1px solid black; 
+       font-size: 11px !important; 
+   }
+   
+   #onto_payment_btn{
+       font-size: 10px;
+   
+     }
+   
+     #back_to_menu_link{
+      
+       position: absolute;
+       font-size: 15px;
+       margin-left: -5px;
+       margin-right: 7% !important;
+   
+   }
+   
+   #our_number_nav_link{
+       font-size: 25px !important;
+       margin-top: -3px !important;
+   }
+   
+   #kfs_order_nav{
+       display: none;
+   }
+
+   
+   .jumbo_icon_phone{
+       height: 30px;
+       width: 30px;
+   }
+   
+   
+   .menu_icon{
+       text-align: center;
+       height: 30px;
+       width: 35px;
+       margin-top: -15px;
+   }
+   
+   .menu_icon_phone{
+       text-align: center;
+       height: 40px;
+       width: 50px;
+       margin-top: -25px;
+   }
+   
+   .menu_icon_cake{
+       text-align: center;
+       height: 50px;
+       width: 55px;
+       margin-top: -15px;
+   }
+   
+   .menu_icon_drink{
+       text-align: center;
+       height: 45px;
+       width: 35px;
+       margin-top: -18px;
+   }
+   
+   .menu_head{
+    
+       font-size: 1.3em;
+     
+   }
+
+   #order_table{
+       font-size: 10px !important;
+   }
+
+   /* delete all items btn */
+   .remove_all{
+    font-size: 10px !important;
+    padding: 2px !important;
+   }
+   
+   .plus_1{
+       
+       padding: 1px 2px ;
+       margin-left: 4px;
+    }
+   
+   
+    .minus_1{
+   
+       padding: 1px 1px 1px 2px;
+       margin-right: 4px;
+    }
+
+    #order_summary_div, #order_intro{
+        font-size: 1em !important;
+    }
+
+ 
+}

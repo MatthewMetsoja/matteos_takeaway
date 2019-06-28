@@ -1,0 +1,243 @@
+  
+    /* Still need to insert  your normal css for standard and bigger than 1800
+    TOP TO BOTTOM style will run down WATERFALL STYLE
+    */ 
+
+nav, footer{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+   
+}
+
+
+header{
+    padding-bottom: 60px !important;
+}
+
+footer{
+    margin-top: 15vh !important;
+    padding-top:15px;
+    padding-bottom:15px;
+    margin-bottom: 50px;
+}
+
+
+.navbar-brand{
+    padding-right: 155px !important;  
+} 
+
+
+a.nav-link {
+color: black !important;
+padding-right: 155px !important;
+/* font-size: 1.4em !important; */
+}
+
+a.nav-link:hover,.navbar-brand:hover {
+color: rgb(64, 182, 54) !important;
+}
+
+.nav-link.active{
+    color: rgb(59, 156, 50) !important;
+}
+
+
+a {
+    color: black ;
+    padding-right: 25px;
+    /* font-size: 1.4em !important; */
+    }
+    
+    a:hover{
+    color: rgb(230, 0, 0);
+    text-decoration: none;
+    }
+
+    a.sub_menu.active{
+        color: rgb(230, 0, 0);
+    }    
+
+  
+.btn-success{
+    border: 1px solid black !important;
+}
+  
+
+.menu_form{
+    border: 3px solid black;
+    padding: 10px 5px 30px 5px;
+}
+  
+  
+  
+  /* xxxxlarge */ 
+  @media only screen and (max-width: 1800px) {
+    
+   
+    .navbar-brand{
+        padding-right: 100px !important;  
+    } 
+    
+    
+    a.nav-link {
+    padding-right: 100px !important;
+   
+    }
+       
+   
+   }
+   
+   
+    /* xxlarge */ 
+   @media only screen and (max-width: 1348px) {
+      
+    .navbar-brand{
+        padding-right: 80px !important;  
+    } 
+    
+    
+    a.nav-link {
+    padding-right: 80px !important;
+   
+    }
+   
+   }
+   
+   
+       /* xlarge */ 
+   @media only screen and (max-width: 1271px) {
+   
+    .navbar-brand{
+        padding-right: 50px !important;  
+    } 
+    
+    
+    a.nav-link {
+    padding-right: 50px !important;
+   
+    }
+   
+    
+   
+   }
+   
+    /* lg */
+   @media only screen and (max-width: 991px) {
+   
+    .navbar-brand{
+        padding-right: 30px !important;  
+    } 
+    
+    
+    a.nav-link {
+    padding-right: 30px !important;
+   
+    }
+   
+   }
+   
+   
+    /* md */
+    @media only screen and (max-width: 901px) {
+   
+        .navbar-brand{
+            padding-right: 15px !important;  
+        } 
+        
+        
+        a.nav-link {
+        padding-right: 15px !important;
+       
+        }
+   
+      
+   }
+   
+   @media only screen and (max-width: 775px) {
+     
+    .navbar-brand{
+        padding-right: 0px !important;  
+    } 
+    
+    
+    a.nav-link {
+    padding-right: 10px !important;
+   
+    }
+    
+   
+   }
+   
+   
+   
+   
+   
+   @media only screen and (max-width: 667px) {
+   
+     
+   
+   }
+   
+   
+   
+   
+   
+    /*  Small */
+    @media only screen and (max-width: 575px) {
+      
+    table{
+        font-size:11px !important;
+    }   
+   
+   }
+   
+   
+   
+   /*  Xsmall */
+   @media only screen and (max-width: 552px) {
+       
+     
+   
+   }
+   
+   /* mobiles 458 - 499 */
+   @media only screen and (max-width: 499px){
+   
+    table{
+        font-size:10px !important;
+    }   
+   
+   }
+   
+   
+   
+   
+   
+   /* mobiles 400 - 499 */
+   @media only screen and (max-width: 458px){
+    table{
+        font-size:9px !important;
+    } 
+  
+   
+   }
+   
+   
+   
+   
+   
+   /* mobiles 358 - 400 */
+   @media only screen and (max-width: 399px){
+    table{
+        font-size:8px !important;
+    } 
+   
+   
+   }
+   
+    /* mobiles iphone5 320 */
+    @media only screen and (max-width: 357px) {
+   
+    
+   }
+   

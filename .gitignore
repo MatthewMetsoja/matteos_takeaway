@@ -1,0 +1,9 @@
+.env
+
+data_log.txt
+error_log.txt
+
+matteos_takeaway/js/charge.js
+
+composer.phar
+vendor/
