@@ -20,7 +20,7 @@ $(document).ready(function () {
       // post object
         $.ajax({
             type: "post",
-            url: "/restaurant/Add_to_basket.php",
+            url: "/matteos_takeaway/Add_to_basket.php",
             // dataType: "html",
             data: data,
             success: function() {
@@ -53,7 +53,7 @@ $(document).ready(function () {
       // post object
       $.ajax({
         type: "post",
-        url: "/restaurant/Add_to_basket.php",
+        url: "/matteos_takeaway/Add_to_basket.php",
         // dataType: "html",
         data: data,
         success: function() {
@@ -87,7 +87,7 @@ $(document).ready(function () {
       // post object
       $.ajax({
         type: "post",
-        url: "/restaurant/Add_to_basket.php",
+        url: "/matteos_takeaway/Add_to_basket.php",
         // dataType: "html",
         data: data,
         success: function() {
