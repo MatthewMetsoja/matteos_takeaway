@@ -21,6 +21,9 @@ class Menu{
 
     public static $delete_error_message = "";
     public static $id_to_delete = "";
+
+    public static $error_flash;
+    public static $success_flash;
        
     /////  CONSTRUCTOR ////
     public function __construct()
@@ -52,8 +55,7 @@ class Menu{
 
             // show edit menu form
             require_once "includes/menu_form_sanitizer.php";
-            require_once "includes/menu_add_new_item.php";
-            
+            require_once "includes/menu_add_new_item.php";    
 
         }
 
@@ -86,6 +88,60 @@ class Menu{
 
     }
 
+
+
+
+      public static function set_success_flash_message($message)
+         {
+            self::$success_flash = filter_var($message, FILTER_SANITIZE_STRING);
+            
+            $_SESSION['success_flash'] = self::$success_flash;
+               
+         }
+
+
+         public static function set_error_flash_message($message)
+         {
+
+            self::$error_flash = filter_var($message, FILTER_SANITIZE_STRING);
+
+            $_SESSION['error_flash'] = self::$error_flash;
+
+         }
+
+
+
+      public static function show_success_flash()
+      {
+
+         if(isset($_SESSION['success_flash']))
+         {
+         echo "<div id='invis_banner' class='login_banner bg-success'> <p class='text-light text-center'>".$_SESSION['success_flash']." </p> </div> "; 
+
+         unset($_SESSION['success_flash']);
+            
+         }
+      
+      }
+
+
+      public static function show_error_flash()
+      {
+
+         if(isset($_SESSION['error_flash']))
+         
+         echo "<div id='invis_banner' class='login_banner bg-danger'> <p class='text-light text-center'>".$_SESSION['error_flash']." </p> </div> "; 
+         
+         unset($_SESSION['error_flash']);            
+            
+      }
+
+
+
+
+
+
+///// methods for public pages ///////// 
 
     public function getMenu($category_id)
     {
@@ -151,7 +207,7 @@ class Menu{
             echo "<span class='menu_head'>".$result->name."  ".$veg. "     " .$nuts.  " </span><br>";
             
             echo  $result->description. "<br>";
-            echo "£".$result->price."  ". " <button type='button' data='$result->price' value='$result->name' rel='$result->id' id='' class='add_to_basket_btn btn btn-sm btn-warning'>Add to order </button><br>";
+            echo "£".$result->price."  ". " <button type='button' data='$result->price' value='$result->name' rel='$result->m_id' id='' class='add_to_basket_btn btn btn-sm btn-warning'>Add to order </button><br>";
             echo  "<br><br>"; 
            
 
@@ -166,6 +222,57 @@ class Menu{
 
     }
 
+
+
+/////////// C R U D (ADMIN) methods /////////
+
+    public static function delete_item_verification()
+    {
+        if(isset($_POST['submit_delete']))
+        {
+            $password = filter_var($_POST['delete_password'],FILTER_SANITIZE_STRING);
+            $password_confirm = filter_var($_POST['delete_password_confirm'],FILTER_SANITIZE_STRING);
+            
+
+            isset($_POST['id_to_delete']) ? self::$id_to_delete = filter_var($_POST['id_to_delete'],FILTER_SANITIZE_STRING) : self::$delete_error_message = "Delete failed, Problem fetching ID!"; 
+        
+            if($password !== getenv(MASTER_PASS) || $password_confirm !== getenv(MASTER_PASS))
+            {
+                self::$delete_error_message = "Delete failed, Incorrect Master Password!";
+            }
+            
+            if($password !== $password_confirm)
+            {
+                self::$delete_error_message = "Delete failed, Passwords do not match!";
+            }
+            
+            if(empty($password) || $password == "")
+            {
+                self::$delete_error_message = "Delete failed, Passwords must not be empty!";
+            }
+            if(empty($password_confirm) || $password == "")
+            {
+                self::$delete_error_message = "Delete failed, Passwords must not be empty!";
+            }
+         
+        }
+        
+    }
+
+    private function delete_item()
+    { 
+        if(isset(self::$id_to_delete))
+        {   
+            $this->db->query("DELETE FROM menu WHERE id = :id_to_delete ");
+            $this->db->bind(":id_to_delete",self::$id_to_delete);
+            
+            if($this->db->execute())
+            {
+                self::set_error_flash_message("Deleted successfully!"); 
+                header("location: menu.php?category=$this->category_id_from_get");  
+            }  
+        }  
+    }
 
 
     public function showMenuItems_Admin()
@@ -232,51 +339,6 @@ class Menu{
               </table>";
 
     }
-
-
-    public static function delete_item_verification()
-    {
-        if(isset($_POST['submit_delete']))
-        {
-            $password = filter_var($_POST['delete_password'],FILTER_SANITIZE_STRING);
-            $password_confirm = filter_var($_POST['delete_password_confirm'],FILTER_SANITIZE_STRING);
-            
-
-            isset($_POST['id_to_delete']) ? self::$id_to_delete = filter_var($_POST['id_to_delete'],FILTER_SANITIZE_STRING) : self::$delete_error_message = "Delete failed, Problem fetching ID!"; 
-        
-            if($password !== getenv(MASTER_PASS) || $password_confirm !== getenv(MASTER_PASS))
-            {
-                self::$delete_error_message = "Delete failed, Incorrect Master Password!";
-            }
-            
-            if($password !== $password_confirm)
-            {
-                self::$delete_error_message = "Delete failed, Passwords do not match!";
-            }
-            
-            if(empty($password) || $password == "")
-            {
-                self::$delete_error_message = "Delete failed, Passwords must not be empty!";
-            }
-            if(empty($password_confirm) || $password == "")
-            {
-                self::$delete_error_message = "Delete failed, Passwords must not be empty!";
-            }
-         
-        }
-        
-    }
-
-    private function delete_item()
-    { 
-        if(isset(self::$id_to_delete))
-        {   
-            $this->db->query("DELETE FROM menu WHERE id = :id_to_delete ");
-            $this->db->bind(":id_to_delete",self::$id_to_delete);
-            $this->db->execute();  
-        }  
-    }
-
 
 
     /// for admin menu forms
@@ -350,13 +412,13 @@ class Menu{
 
         if($this->db->execute())
         {
-            return true;
+        return true; 
         }
         else
         {
             return false;
         }
-
+      
     }
 
      public function update_item($data)
@@ -374,13 +436,12 @@ class Menu{
 
         if($this->db->execute())
         {
-            return true;
+           return true;
         }
         else
         {
             return false;
         }
-
 
      }
 

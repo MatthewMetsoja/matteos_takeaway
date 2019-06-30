@@ -75,6 +75,7 @@ if(isset($_POST['submit']))
                     // if item is added successfuuly them lets redirect the user to the page where they can view the item 
                     if($this->add_new_item($data))
                     {
+                        self::set_success_flash_message("Item added successfully");
                         header("location: menu.php?category=$category");
                     }
 
@@ -84,6 +85,7 @@ if(isset($_POST['submit']))
                     // lets do the same on the edit item page also if the update item was successfull
                     if($this->update_item($data))
                     {
+                        self::set_success_flash_message("Item updated successfully");
                         header("location: menu.php?category=$category");
                     }
                 

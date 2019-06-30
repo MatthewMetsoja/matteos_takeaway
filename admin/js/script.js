@@ -17,6 +17,12 @@ $(document).ready(function () {
    });
    
 
+      // remove added to basket banner   
+      setTimeout(function(){
+         $(".login_banner").fadeOut('slow');
+
+      },3000);
+
 
 
 

@@ -75,12 +75,12 @@ require_once "includes/navigation_order.php";
     </div>
 
 <?php }
-else {?>
-    
-    <h3 id="check_order_title" class="menu_title"> <b>  Your order is empty please go add some items to your basket  </b> </h3>
-   
-</div>
-<?php }
+else 
+{
+// basket is empty so lets delete cookie and redirect to menu   
+$order->delete_basket();
+header("location:index.php");
+}
 ?>
 
 <?php require_once "includes/footer.php"; ?>

@@ -4,6 +4,8 @@
     <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <?php Menu::show_success_flash(); ?>
+    <?php Menu::show_error_flash(); ?>
     <div id="my-nav" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
