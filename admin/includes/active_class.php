@@ -26,11 +26,13 @@ $staff_page = 'staff.php';
     }
 
     if($pageName === $menu_page){
-      $productsPageClass = 'active';    
+      $productsPageClass = 'active'; 
+      Menu::show_success_flash();  Menu::show_error_flash();   
    }
    
     if($pageName === $staff_page){
-      $staffPageClass = 'active';    
+      $staffPageClass = 'active';   
+      Staff::show_success_flash();  Staff::show_error_flash();    
    }
 
 
@@ -85,7 +87,13 @@ $staff_page = 'staff.php';
    }
 
 
+   function include_banner()
+   {
+      if($adminHomePageClass == "active"){
+       
+        }
 
+   }
 
 
 

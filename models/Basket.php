@@ -2,8 +2,6 @@
 
 class Basket
 {
-     
-   
      private $db; 
  
      private $order_id = "";

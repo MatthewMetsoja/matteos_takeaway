@@ -74,8 +74,22 @@ a {
     border: 2px solid black !important;
     border-radius: 5px;
     max-width: 200px;
+    padding: 3px;
 }
   
+
+/* hide number spinner */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+
   /* xxxxlarge */ 
   @media only screen and (max-width: 1800px) {
     
@@ -179,7 +193,9 @@ a {
    
    
    @media only screen and (max-width: 667px) {
-   
+    #invis_banner{
+        margin-top: 100px;
+    }
      
    
    }
@@ -195,6 +211,11 @@ a {
         font-size:11px !important;
     }   
    
+    #invis_banner{
+        margin-top: 60px !important;
+    }
+
+
    }
    
    
