@@ -1,7 +1,7 @@
 <h5 class="text-center">Add a new staff member</h5>
 
 <div class="menu_form"> 
-<form method="post" action="">
+<form method="post" action="" enctype="multipart/form-data">
 
 <div class="form-group row">
     <label for="inputName" class="col-sm-12 col-form-label"> <b> <u> First Name</u> </b> </label>
@@ -31,7 +31,7 @@
     <label for="inputName" class="col-sm-12 col-form-label"> <b> <u>Mobile Number</u>  </b>  </label>
     <div class="col-sm-12">
     <div class="alert-danger"> <?= $msg['mobile_number']; ?> </div>
-        <input type="number" minlength="11" maxlength="11" value="<?= isset($mobile_number) ? $mobile_number: '';?>" class="form-control" name="mobile_number"  placeholder="Enter Mobile Number">
+        <input type="number" pattern="['0-9]'"  value="<?= isset($mobile_number) ? $mobile_number: '';?>" class="form-control" name="mobile_number"  placeholder="Enter Mobile Number">
     </div>
  </div>
 
@@ -46,10 +46,18 @@
 </div>
 
 <div class="form-group row">
+    <label for="inputName" class="col-sm-12 col-form-label"> <b> <u>Password Confirm</u>  </b>  </label>
+    <div class="col-sm-12">
+    <div class="alert-danger"> <?= $msg['password_confirm']; ?> </div>
+        <input type="password" class="form-control" name="password_confirm" placeholder="Re-Enter password">
+    </div>
+</div>
+
+<div class="form-group row">
     <label for="inputName" class="col-sm-12 col-form-label"> <b> <u>Picture</u>  </b>  </label>
     <div class="col-sm-12">
     <div class="alert-danger"> <?= $msg['picture']; ?> </div>
-        <input type="file" class="form-control" name="picture" placeholder="Upload picture">
+        <input type="file" class="form-control"  name="picture">
     </div>
 </div>
 
@@ -58,8 +66,8 @@
     <label for="inputName" class="col-sm-12 col-form-label"> <b> <u> Role </u> </b>  </label>
     <div class="col-sm-12">
     <div class="alert-danger"> <?= $msg['role'] ?></div>
-    Admin    <input type="radio" <?php if(isset($role) && $role == "0"){echo "checked";} ?>  value="0" name="role" >  &nbsp; &nbsp; 
-    Staff <input type="radio"  <?php if(isset($role) && $role == "1"){echo "checked";} ?>  value="1" name="role">
+    Admin    <input type="radio" <?php if(isset($role) && $role == "admin"){echo "checked";} ?>  value="admin" name="role" >  &nbsp; &nbsp; 
+    Staff <input type="radio"  <?php if(isset($role) && $role == "staff"){echo "checked";} ?>  value="staff" name="role">
   
     </div>
 </div>

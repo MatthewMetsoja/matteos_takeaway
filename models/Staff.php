@@ -43,7 +43,7 @@ class Staff{
         {
 
             // show edit menu form
-            // require_once "includes/staff_form_sanitizer.php";
+            require_once "includes/staff_form_sanitizer.php";
             require_once "includes/staff_add_new_member.php";    
 
         }
@@ -140,10 +140,6 @@ class Staff{
          unset($_SESSION['error_flash']);            
             
       }
-
-
-
-
 
 
 ///// methods for public pages ///////// 

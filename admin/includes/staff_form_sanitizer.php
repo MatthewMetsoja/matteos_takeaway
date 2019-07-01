@@ -1,86 +1,142 @@
 <?php
 $msg = [
-    "name" => "",
-    "category" => "",
-    "price" => "",
-    "description" => "",
-    "vegetarian" => "",
-    "nut_traces" => "",
+    "first_name" => "",
+    "last_name" => "",
+    "email" => "",
+    "mobile_number" => "",
+    "password" => "",
+    "password_confirm" => "",
+    "picture" => "",
+    "role" =>  "" 
 ];
 
 if(isset($_POST['submit']))
-{
-    $POST = filter_var_array($_POST,FILTER_SANITIZE_STRING);
-    
-    $name = trim($POST['name']);
-    $category = trim($POST['category']);
-    $price = number_format(trim($POST['price']),2); 
-    $description = trim($POST['description']);
-    $vegetarian = trim($POST['vegetarian']);
-    $nut_traces = trim($POST['nut_traces']);
+{ 
+    $first_name = filter_var(trim($_POST['first_name']),FILTER_SANITIZE_STRING);
+    $last_name = filter_var(trim($_POST['last_name']),FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
+    $mobile_number = filter_var(trim($_POST['mobile_number']),FILTER_SANITIZE_STRING); 
+    $password = $_POST['password'];
+    $password_confirm = $_POST['password_confirm'];
+    $picture = $_FILES['picture']['name'];
+    $tmp_picture = $_FILES['picture']['tmp_name'];
+    $role = filter_var($_POST['role'],FILTER_SANITIZE_STRING);
     
 
     // validate input
-    if(empty($name) || $name === "")
+    if(empty($first_name) || $first_name === "")
     {
-        $msg['name'] = "Name can not be empty";
+        $msg['first_name'] = "First Name can not be left empty";
     }
     
-    if(empty($category) || $category === "** Please choose a category **")
+    if(empty($last_name) || $last_name === "")
     {
-        $msg['category'] = "Category can not be empty";
+        $msg['last_name'] = "Last Name can not be left empty";
     }
 
-  
-    // check pennys only has 2 decimals
-    if( (strlen(strchr($price,'.')) -1 ) !== 2){
-        $msg['price'] = "Please enter the price correctly (pounds.pennys | 0.00 ) ";
-    }
-
-    if(empty($price) || $price === "" || $price === "0.00" || $price == "0")
+    if(empty($email) || $email == "")
     {
-        $msg['price'] = "Price can not be empty";
+        $msg['email'] = "Email can not be left empty";
     }
 
-    if(empty($description) || $description === "")
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL))
     {
-        $msg['description'] = "Description can not be empty";
+        $msg['email'] = "Please enter a valid email";
     }
 
-    if($vegetarian !== "0" && $vegetarian !== "1")
+
+    if(strlen($mobile_number) != 11)
     {
-        $msg['vegetarian'] = "Choose if meal is vegetarian or Not";
+        $msg['mobile_number'] = "Mobile number must be 11 digits long";
     }
 
-
-    if($nut_traces !== "0" && $nut_traces !== "1")
+    if(strpos($mobile_number,"0") !== 0)
     {
-        $msg['nut_traces'] = "Choose if meal has nut traces or Not";
+     $msg['mobile_number'] ="Mobile number must start with 0";   
     }
 
-    else{
+    if(empty($mobile_number) || $mobile_number === "")
+    {
+        $msg['mobile_number'] = "Mobile number can not be left empty";
+    }
+
+
+    if(empty($role))
+    {
+     $msg['role'] = "Please choose the new staff member's site access";
+    }
+
+    if(empty($password) || $password === "")
+    {
+        $msg['password'] = "Password can not be left empty";
+    }
+
+    if(empty($password_confirm) || $password_confirm === "")
+    {
+        $msg['password_confirm'] = "Password can not be left empty";
+    }
+
+    if(strlen($password) < 5)
+    {
+        $msg['password'] = "Password must be at least 5 characters long";
+        $msg['password_confirm'] = "Password must be at least 5 characters long";
+    }
+
+    if($password !== $password_confirm)
+    {
+        $msg['password'] = "Passwords do not match";
+        $msg['password_confirm'] = "Passwords do not match";
+    }
+
+     
+
+    if(empty($picture) || $picture == "" && $_GET['add_item'] == "yes" )
+    {
+        $msg['picture'] = "Please upload a picture of the new staff member";
+    }
+      
+
+    else
+    {
         
-        $data = [
-            'name' => $name,
-            'category' => $category,
-            'price' => $price,
-            'description' => $description,
-            'vegetarian' => $vegetarian,
-            'nut_traces' => $nut_traces,
-         ];
-
-                if(isset($_GET['add_item']))
+                if(isset($_GET['add_member']))
                 {
 
-                    // if item is added successfuuly them lets redirect the user to the page where they can view the item 
-                    if($this->add_new_item($data))
-                    {
-                        self::set_success_flash_message("Item added successfully");
-                        header("location: menu.php?category=$category");
-                    }
+                   if(empty($msg['first_name']) && empty($msg['last_name']) && empty($msg['email']) && 
+                       empty($msg['mobile_number']) && empty($msg['password']) && empty($msg['password_confirm']) &&
+                        empty($msg['picture']) && empty($msg['role']) )
+                   {
+                        $password = password_hash($password,PASSWORD_DEFAULT);
+
+                        move_uploaded_file($tmp_picture,"images/staff/$picture");
+                        $picture = "images/staff/$picture";
+                
+                        $join_date = date('Y-m-d H:i:s');
+                        $last_log_in = date('Y-m-d H:i:s');
+                        
+                        $data = [
+                            'first_name' => $first_name,
+                            'last_name' => $last_name,
+                            'email' => $email,
+                            'password' => $password,
+                            'mobile_number' => $mobile_number,
+                            'role' => $role,
+                            'picture' => $picture,
+                            'join_date' => $join_date,
+                            'last_log_in' => $last_log_in,
+                        ];
+
+                        // if item is added successfuuly them lets redirect the user to the page where they can view the item 
+                        if($this->add_new_staff_member($data))
+                        {
+                            self::set_success_flash_message("New staff member added successfully");
+                            header("location: staff.php");
+                        }
+                   } 
+                    
 
                 }
-                elseif(isset($_GET['edit_item']))
+                elseif(isset($_GET['edit_member']))
                 {
                     // lets do the same on the edit item page also if the update item was successfull
                     if($this->update_item($data))
