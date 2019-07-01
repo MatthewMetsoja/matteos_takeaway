@@ -10,7 +10,7 @@ require_once ("includes/navigation.php");
 ?>
 
 <div class="container-fluid">
-<div class="alert-danger text-danger"> <?//= Staff::$delete_error_message ?> </div>
+<div class="alert-danger text-danger"> <?php Staff::$delete_error_message ?> </div>
  
 <div class="row">
         <div class="col sm-12">
@@ -18,7 +18,7 @@ require_once ("includes/navigation.php");
             <?php   if(!isset($_GET['add_member']) && (!isset($_GET['edit_member']) )  )
                     { ?>   
                         <div class="text-center mb-3">  <a href="staff.php?add_member=yes" class="btn btn-success">Click here to Add new staff member</a> </div> 
-                        <div class="alert-danger text-danger"> <?//= Staff::$delete_error_message ?> </div>
+                        <div class="alert-danger text-danger"> <?php Staff::$delete_error_message ?> </div>
                       <?php          
                     } ?>       
         </div> 
@@ -35,7 +35,7 @@ require_once ("includes/navigation.php");
 
     </div>
 
-    <div class="alert-danger text-danger text-center"> <?//= Staff::$delete_error_message ?> </div>
+    <div class="alert-danger text-danger text-center"> <?php Staff::$delete_error_message ?> </div>
    
 </div>
 

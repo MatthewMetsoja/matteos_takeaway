@@ -3,30 +3,18 @@
 class Staff{
 
     private $db;
-    
-    private $first_name;
-    private $last_name;
-    private $email;
-    private $password;
-    private $mobile;
-    private $role;
-
-
-
-
-    private $category_id_from_get;
 
     private $edit_id;
 
-    private $count;
-
-    private $old_name;
-    private $old_category_id;
-    private $old_category_name;
-    private $old_description;
-    private $old_price;
-    private $old_vegatarian;
-    private $old_nut_traces;
+    private $old_first_name;
+    private $old_last_name;
+    private $old_email;
+    private $old_mobile_number;
+    private $old_password;
+    private $old_picture;
+    private $old_role;
+    private $old_join_date;
+    private $old_last_log_in;
 
     public static $delete_error_message = "";
     public static $id_to_delete = "";
@@ -51,28 +39,28 @@ class Staff{
         if(isset($_GET['edit_member']))
         {
             // sanitize get
-            $this->edit_id = filter_var($_GET['edit_item'],FILTER_SANITIZE_STRING);
+            $this->edit_id = filter_var($_GET['edit_member'],FILTER_SANITIZE_STRING);
 
-            // get the item values
-            $this->db->query("SELECT categories.title, m.id AS m_id, m.category_id AS m_cid, 
-            m.name,m.price,m.description,m.vegetarian,m.nut_traces FROM menu AS m
-            LEFT JOIN categories ON m.category_id = categories.id  WHERE m.id = :edit_id" );
+            // get the data that may need update
+            $this->db->query("SELECT * FROM staff WHERE id = :edit_id" );
             $this->db->bind(':edit_id',$this->edit_id);
             $this->db->execute();
             
             $result = $this->db->single();
 
-            $this->old_name = $result->name;
-            $this->old_category_id = $result->m_cid;
-            $this->old_category_name = $result->title;
-            $this->old_price = $result->price;
-            $this->old_description = $result->description;
-            $this->old_vegatarian = $result->vegetarian;
-            $this->old_nut_traces = $result->nut_traces;
+            $this->old_first_name = $result->first_name;
+            $this->old_last_name = $result->last_name;
+            $this->old_email = $result->email;
+            $this->old_mobile_number = $result->mobile_number;
+            $this->old_password = $result->password;
+            $this->old_picture = $result->picture;
+            $this->old_role = $result->role;
+            $this->old_join_date = $result->join_date;
+            $this->old_last_log_in = $result->last_log_in;
         
             // show edit menu form
-            require_once "includes/menu_form_sanitizer.php";
-            require_once "includes/menu_edit_item.php";
+            require_once "includes/staff_form_sanitizer.php";
+            require_once "includes/staff_edit_member.php";
         }
 
           //view all staff table
@@ -80,8 +68,6 @@ class Staff{
           {
               require_once "includes/delete_modal.php";
   
-              // show menu items from selected category
-            //   $this->showMenuItems_Admin();
               $this->showAllStaff();
   
               if(isset($_POST['submit_delete']) && self::$delete_error_message == "")
@@ -200,14 +186,14 @@ class Staff{
             
             if($this->db->execute())
             {
-                self::set_error_flash_message("Deleted successfully!"); 
+                self::set_error_flash_message("Staff member deleted successfully!"); 
                 header("location: staff.php");  
             }  
         }  
     }
 
 
-    public function showMenuItems_Admin()
+    public function showAllStaff()
     {
        
                 
@@ -216,18 +202,20 @@ class Staff{
          
         
         echo "
-            <table class='table table-hover table-responsive table-inverse mr-4 ml-2'>
+            <table width='100'class='table table-hover table-bordered mr-4 ml-2'>
                 <thead>
                     <tr>
-                        <th width='2%'>ID</th>
-                        <th width='4%'>First Name</th>
-                        <th width='4%'>Last Name</th>
-                        <th width='5%'>Email</th>
-                        <th width='4'%>Mobile</th>
-                        <th width='4%'>Role</th>
-                        <th width='4%'>Picture</th>
-                        <th width='4%'>Edit</th>
-                        <th width='4%'>Delete</th>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Role</th>
+                        <th>Picture</th>
+                        <th>Join date</th>
+                        <th>Last Logged in</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>";
@@ -248,10 +236,10 @@ class Staff{
                      <td> $row->email </td> 
                      <td> $row->mobile_number </td> 
                      <td> $row->role </td> 
-                     <td> $row->picture </td> 
+                     <td> <img class='profile_pic' src='$row->picture'> </td> 
                      <td> $row->join_date</td>
                      <td> $row->last_log_in</td>
-                     <td> <a class='btn btn-sm btn-dark' href='menu.php?edit_member=$row->id'>Edit</a> </td> 
+                     <td> <a class='btn btn-sm btn-dark' href='staff.php?edit_member=$row->id'>Edit</a> </td> 
                      <td> <button value='$row->id' rel='$row->picture' type='button' javascript='void(0)' class='delete_item_from_menu_btn btn btn-danger btn-sm'>Delete </button> </td> 
                      <tr>";
                 }
@@ -294,8 +282,10 @@ class Staff{
 
             public function update_staff_member($data)
             {
-                $this->db->query("UPDATE menu SET category_id = :cat_id, name = :name, price = :price,
-                description = :description, vegetarian = :vegetarian, nut_traces =:nut_traces WHERE id = :edit_id");
+                $this->db->query("UPDATE staff SET first_name = :first_name, last_name = :last_name,
+                 email = :email, password = :password, mobile_number = :mobile_number, role = :role,
+                 picture = :picture, join_date = :join_date, last_log_in = :last_log_in
+                 WHERE id = :edit_id");
                 
                 $this->db->bind(':first_name',$data['first_name']);
                 $this->db->bind(':last_name',$data['last_name']);

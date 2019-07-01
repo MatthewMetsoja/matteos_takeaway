@@ -10,7 +10,7 @@ Menu::delete_item_verification();
 ?>
 
 <div class="container-fluid">
-<div class="alert-danger text-danger"> <?= Menu::$delete_error_message ?> </div>
+<div class="alert-danger text-danger"> <?php Menu::$delete_error_message ?> </div>
  
 <div class="row">
         <div class="col sm-12">
@@ -19,7 +19,7 @@ Menu::delete_item_verification();
             <?php   if(!isset($_GET['add_item']) && (!isset($_GET['edit_item']) )  )
                     { ?>   
                         <div class="text-center mb-3">  <a href="menu.php?add_item=yes" class="btn btn-success">Click here to Add new item</a> </div> 
-                        <div class="alert-danger text-danger"> <?= Menu::$delete_error_message ?> </div>
+                        <div class="alert-danger text-danger"> <?php Menu::$delete_error_message ?> </div>
                            
                            <div class="text-center mb-4"> 
                                 <a class="sub_menu <?= $starters_class ?>" href="menu.php?category=1">Starters </a> 
@@ -49,7 +49,7 @@ Menu::delete_item_verification();
 
     </div>
 
-    <div class="alert-danger text-danger text-center"> <?= Menu::$delete_error_message ?> </div>
+    <div class="alert-danger text-danger text-center"> <?php Menu::$delete_error_message ?> </div>
   
 </div>
 
