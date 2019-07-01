@@ -44,6 +44,11 @@ if(isset($_POST['submit']))
         $msg['email'] = "Please enter a valid email";
     }
 
+    if($this->does_email_exist($email))
+    {
+        $msg['email'] = "That email is taken already.. please choose another";
+    }
+
 
     if(strlen($mobile_number) != 11)
     {

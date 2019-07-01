@@ -64,7 +64,7 @@ class Staff{
         }
 
           //view all staff table
-          else
+          elseif(!isset($_GET['edit_member']) && !isset($_GET['add_member']))
           {
               require_once "includes/delete_modal.php";
   
@@ -72,7 +72,7 @@ class Staff{
   
               if(isset($_POST['submit_delete']) && self::$delete_error_message == "")
               {
-                $this->delete_item();  
+                $this->delete_staff_member();  
               } 
   
           }
@@ -128,131 +128,12 @@ class Staff{
       }
 
 
-///// methods for public pages ///////// 
-
-    public function getStaff()
-    {
         
-        $this->db->query('SELECT * FROM staff');
-                                
-        $results = $this->db->resultset();
 
-        return $results;
-    
-    }
+ 
 
 
 /////////// C R U D (ADMIN) methods /////////
-
-    public static function delete_staff_member_verification()
-    {
-        if(isset($_POST['submit_delete']))
-        {
-            $password = filter_var($_POST['delete_password'],FILTER_SANITIZE_STRING);
-            $password_confirm = filter_var($_POST['delete_password_confirm'],FILTER_SANITIZE_STRING);
-            
-
-            isset($_POST['id_to_delete']) ? self::$id_to_delete = filter_var($_POST['id_to_delete'],FILTER_SANITIZE_STRING) : self::$delete_error_message = "Delete failed, Problem fetching ID!"; 
-        
-            if($password !== getenv(MASTER_PASS) || $password_confirm !== getenv(MASTER_PASS))
-            {
-                self::$delete_error_message = "Delete failed, Incorrect Master Password!";
-            }
-            
-            if($password !== $password_confirm)
-            {
-                self::$delete_error_message = "Delete failed, Passwords do not match!";
-            }
-            
-            if(empty($password) || $password == "")
-            {
-                self::$delete_error_message = "Delete failed, Passwords must not be empty!";
-            }
-            if(empty($password_confirm) || $password == "")
-            {
-                self::$delete_error_message = "Delete failed, Passwords must not be empty!";
-            }
-         
-        }
-        
-    }
-
-    public function delete_staff_member()
-    { 
-        if(isset(self::$id_to_delete))
-        {   
-            $this->db->query("DELETE FROM staff WHERE id = :id_to_delete ");
-            $this->db->bind(":id_to_delete",self::$id_to_delete);
-            
-            if($this->db->execute())
-            {
-                self::set_error_flash_message("Staff member deleted successfully!"); 
-                header("location: staff.php");  
-            }  
-        }  
-    }
-
-
-    public function showAllStaff()
-    {
-       
-                
-        $results = $this->getStaff();
-
-         
-        
-        echo "
-            <table width='100'class='table table-hover table-bordered mr-4 ml-2'>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Mobile</th>
-                        <th>Role</th>
-                        <th>Picture</th>
-                        <th>Join date</th>
-                        <th>Last Logged in</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>";
-
-
-                foreach($results as $row){
-                   
-                    if($row->join_date == $row->last_log_in)
-                    {
-                            $row->last_log_in = 'Never';
-                    } 
-
-                    echo 
-                    "<tr>
-                     <td> $row->id </td> 
-                     <td> $row->first_name</td> 
-                     <td> $row->last_name </td> 
-                     <td> $row->email </td> 
-                     <td> $row->mobile_number </td> 
-                     <td> $row->role </td> 
-                     <td> <img class='profile_pic' src='$row->picture'> </td> 
-                     <td> $row->join_date</td>
-                     <td> $row->last_log_in</td>
-                     <td> <a class='btn btn-sm btn-dark' href='staff.php?edit_member=$row->id'>Edit</a> </td> 
-                     <td> <button value='$row->id' rel='$row->picture' type='button' javascript='void(0)' class='delete_item_from_menu_btn btn btn-danger btn-sm'>Delete </button> </td> 
-                     <tr>";
-                }
-            
-          
-          echo "</tbody>
-        
-              </table>";
-
-    }
-
-
-
 
             public function add_new_staff_member($data)
             {
@@ -278,6 +159,93 @@ class Staff{
                     return false;
                 }
             
+            }
+
+
+            public function getStaff()
+            {
+                
+                $this->db->query('SELECT * FROM staff');
+                                        
+                $results = $this->db->resultset();
+        
+                return $results;
+            
+            }
+        
+            public function showAllStaff()
+            {
+               
+                        
+                $results = $this->getStaff();
+        
+                 
+                
+                echo "
+                    <table width='100'class='table table-hover table-bordered mr-4 ml-2'>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Role</th>
+                                <th>Picture</th>
+                                <th>Join date</th>
+                                <th>Last Logged in</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
+        
+        
+                        foreach($results as $row){
+                           
+                            if($row->join_date == $row->last_log_in)
+                            {
+                                    $row->last_log_in = 'Never';
+                            } 
+        
+                            echo 
+                            "<tr>
+                             <td> $row->id </td> 
+                             <td> $row->first_name</td> 
+                             <td> $row->last_name </td> 
+                             <td> $row->email </td> 
+                             <td> $row->mobile_number </td> 
+                             <td> $row->role </td> 
+                             <td> <img class='profile_pic' src='$row->picture'> </td> 
+                             <td> $row->join_date</td>
+                             <td> $row->last_log_in</td>
+                             <td> <a class='btn btn-sm btn-dark' href='staff.php?edit_member=$row->id'>Edit</a> </td> 
+                             <td> <button value='$row->id' rel='$row->first_name $row->last_name' type='button' javascript='void(0)' class='delete_item_from_menu_btn btn btn-danger btn-sm'>Delete </button> </td> 
+                             <tr>";
+                        }
+                    
+                  
+                  echo "</tbody>
+                
+                      </table>";
+        
+            }
+
+            public function does_email_exist($email)
+            {
+                $this->db->query("SELECT * FROM staff WHERE email = :email");
+                $this->db->bind(":email",$email);
+                $this->db->resultset();
+                
+                if($this->db->rowCount() != 0)
+                {
+                  return true;
+                }
+                else
+                {
+                  return false;  
+                }
+
             }
 
             public function update_staff_member($data)
@@ -307,6 +275,55 @@ class Staff{
                     return false;
                 }
 
+            }
+
+
+            public static function delete_staff_member_verification()
+            {
+                if(isset($_POST['submit_delete']))
+                {
+                    $password = filter_var($_POST['delete_password'],FILTER_SANITIZE_STRING);
+                    $password_confirm = filter_var($_POST['delete_password_confirm'],FILTER_SANITIZE_STRING);
+                    
+        
+                    isset($_POST['id_to_delete']) ? self::$id_to_delete = filter_var($_POST['id_to_delete'],FILTER_SANITIZE_STRING) : self::$delete_error_message = "Delete failed, Problem fetching ID!"; 
+                
+                    if($password !== getenv(MASTER_PASS) || $password_confirm !== getenv(MASTER_PASS))
+                    {
+                        self::$delete_error_message = "Delete failed, Incorrect Master Password!";
+                    }
+                    
+                    if($password !== $password_confirm)
+                    {
+                        self::$delete_error_message = "Delete failed, Passwords do not match!";
+                    }
+                    
+                    if(empty($password) || $password == "")
+                    {
+                        self::$delete_error_message = "Delete failed, Passwords must not be empty!";
+                    }
+                    if(empty($password_confirm) || $password == "")
+                    {
+                        self::$delete_error_message = "Delete failed, Passwords must not be empty!";
+                    }
+                 
+                }
+                
+            }
+        
+            public function delete_staff_member()
+            { 
+                if(isset(self::$id_to_delete))
+                {   
+                    $this->db->query("DELETE FROM staff WHERE id = :id_to_delete ");
+                    $this->db->bind(":id_to_delete",self::$id_to_delete);
+                    
+                    if($this->db->execute())
+                    {
+                        self::set_error_flash_message("Staff member deleted successfully!"); 
+                        header("location: staff.php");  
+                    }  
+                }  
             }
 
 
