@@ -1,4 +1,8 @@
-
+<?php
+ if(!isset($_SESSION['id']))
+ {
+     header("location: ../index.php"); 
+ } ?>
 <nav class="navbar navbar-expand-sm navbar-light bg-light sticky-top">
     <a href="../index.php" class="navbar-brand"><i class="fas fa-home    "></i> Public Home Page</a>
     <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +27,7 @@
                 <a class="nav-link <?= $staffPageClass ?>" href="staff.php"> <i class="fas fa-users-cog"></i>  Staff</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="log_out.php"><i class="fas fa-power-off    "></i> Log out</a>
+                <a class="nav-link" href="../log_out.php"><i class="fas fa-power-off    "></i> Log out</a>
             </li>
         </ul>
     </div>

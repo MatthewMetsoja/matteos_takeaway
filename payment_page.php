@@ -9,8 +9,7 @@ require_once "includes/navigation_payment.php";
 
 // redirect to menu if basket if empty and user has managed to get this far
 if($order->basket_price_nav() == "0.00"){
-    header("location: index.php");
-    
+  $order->delete_basket();    
 }
 
 ?>

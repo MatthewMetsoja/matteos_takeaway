@@ -41,7 +41,7 @@ require_once "includes/navigation.php";
               
                 </div> 
            <p class="text-center"> 
-                <a href="">Please Click here for directions and for more info about our history <br>  </a>
+                <a href="about_us.php"> Please Click here for directions and for more info about our history <br>  </a>
           </p>
 
           </div>
@@ -53,8 +53,6 @@ require_once "includes/navigation.php";
 <div class="container-fluid">
     <div class="row">
         <div id="menu" class="col-sm-12">
-        
-      
         <h3 id="main_menu_title" class="menu_title"> <b> <u>  Menu </u>  </b> </h3>
         <div class="text-center veg_nut"  >   <span class="text-success"> (V) </span> denotes vegetarian dishes
         <span class="text-danger">  (N) </span> denotes nuts or traces of nuts </div>

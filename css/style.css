@@ -127,7 +127,16 @@ margin-top: -18px;
     padding-top: 80px !important;
     
 }
-
+#about_us_jumbo{
+    padding-top: 80px !important; 
+    height: 300px;
+    background: #fefde5;
+    color: #056305;
+  }
+  
+  #about_us_intro{
+      margin-top: -40px;
+  }
 
 #success_jumbo{
     height: 270px !important;
@@ -387,7 +396,9 @@ STRIPE PAYMENT
     font-family: 'Luckiest Guy', cursive;
 }
 
-
+.frame{
+    border: 3px solid black !important;
+}
 
 
 
@@ -524,6 +535,10 @@ STRIPE PAYMENT
 
 }
 
+@media only screen and (max-width: 1348px) {
+    
+}
+
 
  /* xxlarge */ 
 @media only screen and (max-width: 1348px) {
@@ -615,7 +630,13 @@ STRIPE PAYMENT
     padding-top: 60px !important;
   }
  
+  #about_us_jumbo{
+    height: 310px !important;
+  }
   
+  #about_us_intro{
+      margin-top: -45px !important;
+  }
  
      #kfs_logo{
          width: 45px;
@@ -674,7 +695,9 @@ STRIPE PAYMENT
     height: 230px !important;
   }
  
-
+  #about_us_jumbo{
+    height: 340px !important;
+  }
      #back_to_menu_link{
          margin-top: -7px !important;
      }
@@ -797,7 +820,9 @@ font-size: 12px !important;
 }
 
 
-
+#about_us_jumbo{
+    height: 370px !important;
+  }
 
      #back_to_menu_link{
          margin-top: -7px !important;
@@ -851,7 +876,14 @@ font-size: 12px !important;
         padding-top: 68px !important;  
      }
     
+     #about_us_jumbo{
+        height: 380px !important;
+       
+      }
 
+      #about_us_intro{
+        font-size: 19px !important;
+    }
         #back_to_menu_link{
             margin-top: -7px !important;
         }
@@ -960,7 +992,10 @@ font-size: 12px !important;
       #success_jumbo{
         height: 300px !important;
      }
-
+     #about_us_jumbo{
+        height: 400px !important;
+       
+      }
      #kfs_logo{
         width: 45px !important;
         height: 45px !important;
@@ -1045,7 +1080,15 @@ font-size: 12px !important;
         margin-top: 20px !important;    
     }
 
-    
+    #about_us_jumbo{
+        height: 400px !important;
+       
+      }
+
+      #about_us_intro{
+        font-size: 18px !important;
+       
+      }
      #kfs_logo{
         width: 35px;
         height: 35px;
@@ -1148,7 +1191,10 @@ font-size: 12px !important;
         height: 325px !important;
      }
 
-
+     #about_us_jumbo{
+        height: 440px !important;
+       
+      }
    
    
 
@@ -1205,7 +1251,10 @@ font-size: 12px !important;
         padding-top: 50px !important; 
     }
 
-
+    #about_us_jumbo{
+        height: 480px !important;
+       
+      }
 
 }
 
@@ -1242,7 +1291,10 @@ font-size: 12px !important;
          padding-top: 60px !important;  
      }
 
-
+     #about_us_jumbo{
+        height: 510px !important;
+       
+      }
      #kfs_logo{
         width: 35px;
         height: 35px;
@@ -1392,8 +1444,12 @@ font-size: 12px !important;
       #success_jumbo{
          height: 380px !important;
      }
-     
 
+      #about_us_intro{
+        font-size: 16px !important;
+        padding-top: 20px !important;
+       
+      }
      #kfs_logo{
         width: 35px;
         height: 35px;

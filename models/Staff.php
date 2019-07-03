@@ -64,7 +64,7 @@ class Staff{
         }
 
           //view all staff table
-          elseif(!isset($_GET['edit_member']) && !isset($_GET['add_member']))
+          elseif(!isset($_GET['edit_member']) && !isset($_GET['add_member']) && basename($_SERVER['PHP_SELF']) == "staff.php")
           {
               require_once "includes/delete_modal.php";
   
@@ -75,6 +75,11 @@ class Staff{
                 $this->delete_staff_member();  
               } 
   
+          }
+          elseif(basename($_SERVER['PHP_SELF']) == "login.php")
+          {
+            require_once "includes/login_form_sanitizer.php";
+            require_once "login_form.php";
           }
 
     }
@@ -126,15 +131,12 @@ class Staff{
          unset($_SESSION['error_flash']);            
             
       }
-
-
-        
-
  
 
 
 /////////// C R U D (ADMIN) methods /////////
 
+// Create
             public function add_new_staff_member($data)
             {
                 $this->db->query("INSERT INTO staff(first_name, last_name, email, password, mobile_number, role, picture, join_date, last_log_in)
@@ -161,7 +163,7 @@ class Staff{
             
             }
 
-
+// Read
             public function getStaff()
             {
                 
@@ -248,6 +250,7 @@ class Staff{
 
             }
 
+// Update
             public function update_staff_member($data)
             {
                 $this->db->query("UPDATE staff SET first_name = :first_name, last_name = :last_name,
@@ -277,7 +280,7 @@ class Staff{
 
             }
 
-
+// Delete
             public static function delete_staff_member_verification()
             {
                 if(isset($_POST['submit_delete']))
@@ -326,87 +329,46 @@ class Staff{
                 }  
             }
 
+/// LOGIN ////
+            public function log_in($email,$password)
+            {
+                $this->db->query("SELECT * FROM staff WHERE email = :email");
+                $this->db->bind(":email",$email);
+                $this->db->execute();
+                $result = $this->db->single();
+                // var_dump($result->password);
+                 if(password_verify($password,$result->password))
+                //  if($password == $result->password)
+                 {
+                   $_SESSION['id'] = $result->id;
+                   $_SESSION['email'] = $result->email;
+                   $_SESSION['role'] = $result->role;
+                   $_SESSION['first_name'] = $result->first_name;
+                   $_SESSION['last_name'] = $result->last_name;
+                   
+                   $last_log_in = date('Y-m-d H:i:s');
+                   $this->db->query("UPDATE staff SET last_log_in = :last_log_in WHERE email = :email");
+                   $this->db->bind(":last_log_in",$last_log_in);
+                   $this->db->bind(":email",$email);
+                   $this->db->execute();
+                   return true;
+                 }
+                 else
+                 {
+                    return false;
+                 }
 
+            }
 
+        public static function log_out()
+        {
+            session_unset();
 
+            session_destroy();
 
-
-
-
-
-
-
-
-
-    // public function __construct()
-    // {
-    //  $this->db = new Database;
-     
-    // }
-
-
-    // public static function hash_password()
-    // {
-
-    // }
-    
-    
-    // private function email_exists()
-    // {
-
-    // }
-
-
-    // private function create_staff_memember()
-    // {
-
-
-    // }
-    
-    // private function select_all_staff_memembers()
-    // {
-
-
-    // }
-
-
-    // private function update_staff_memember()
-    // {
-
-
-    // }
-
-    // private function delete_staff_memember()
-    // {
-
-
-    // }
-    
-    
-    // private function login($data)
-    // {
-        
-
-
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            header("location: index.php");
+            
+        }
 
 
 

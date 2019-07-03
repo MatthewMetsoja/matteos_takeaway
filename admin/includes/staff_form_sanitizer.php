@@ -44,12 +44,7 @@ if(isset($_POST['submit']))
         $msg['email'] = "Please enter a valid email";
     }
 
-    if($this->does_email_exist($email))
-    {
-        $msg['email'] = "That email is taken already.. please choose another";
-    }
-
-
+    
     if(strlen($mobile_number) != 11)
     {
         $msg['mobile_number'] = "Mobile number must be 11 digits long";
@@ -101,6 +96,11 @@ if(isset($_POST['submit']))
                     if(empty($picture))
                     {
                         $msg['picture'] = "Please upload a picture of the new staff member";
+                    }
+
+                    if($this->does_email_exist($email))
+                    {
+                        $msg['email'] = "That email is taken already.. please choose another";
                     }
 
                         if(empty($msg['first_name']) && empty($msg['last_name']) && empty($msg['email']) && 

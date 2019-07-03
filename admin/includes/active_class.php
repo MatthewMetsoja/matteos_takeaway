@@ -17,7 +17,8 @@ $staff_page = 'staff.php';
 
 
     if($pageName === $adminHome_page){
-       $adminHomePageClass = 'active';    
+       $adminHomePageClass = 'active';
+       Staff::show_success_flash();  Staff::show_error_flash();        
     }
 
 
@@ -85,15 +86,5 @@ $staff_page = 'staff.php';
    {
       $drinks_class = "";
    }
-
-
-   function include_banner()
-   {
-      if($adminHomePageClass == "active"){
-       
-        }
-
-   }
-
 
 
