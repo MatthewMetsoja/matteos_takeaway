@@ -25,12 +25,15 @@
                                     <div class="col-sm-12">
                                      <div class="text-danger"> <?= $msg['password'] ?></div>
                                         <input type="password" class="form-control" name="password" placeholder="Please enter password">
+                                        <div class="mt-2"> <a class="text-light" href="forgot.php">Click here to reset, if you've forgotton </a> </div>
                                     </div>
+                                  
                                 </div>
 
                                 <button type="submit" name="submit" class="btn btn-block btn-success">Login</button>
                               
                         </form>
+                     
                     </div>   
                 </div>
 

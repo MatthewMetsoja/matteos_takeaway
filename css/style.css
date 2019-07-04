@@ -287,6 +287,7 @@ input[type=number] {
 }
 
 #order_title{
+
     color: black;
 }
 
@@ -877,7 +878,7 @@ font-size: 12px !important;
      }
     
      #about_us_jumbo{
-        height: 380px !important;
+        height: 390px !important;
        
       }
 
@@ -993,7 +994,7 @@ font-size: 12px !important;
         height: 300px !important;
      }
      #about_us_jumbo{
-        height: 400px !important;
+        height: 410px !important;
        
       }
      #kfs_logo{
@@ -1081,8 +1082,7 @@ font-size: 12px !important;
     }
 
     #about_us_jumbo{
-        height: 400px !important;
-       
+        height: 420px !important;
       }
 
       #about_us_intro{
@@ -1192,11 +1192,14 @@ font-size: 12px !important;
      }
 
      #about_us_jumbo{
-        height: 440px !important;
+        height: 490px !important;
        
       }
    
-   
+      #about_us_intro{
+        font-size: 17px !important;
+       
+      }
 
    
    #onto_payment_btn{

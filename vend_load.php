@@ -21,8 +21,7 @@ $logger->pushHandler(new FirePHPHandler());
 $dotenv = Dotenv\Dotenv::create(__DIR__.'/');
 $dotenv->load();
 
-
 // You can now use your logger
-$logger->info('My logger is now ready');
+// $logger->info('My logger is now ready');
 
 ?>

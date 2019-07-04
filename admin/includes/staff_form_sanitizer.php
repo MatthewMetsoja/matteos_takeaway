@@ -125,6 +125,7 @@ if(isset($_POST['submit']))
                                     'picture' => $picture,
                                     'join_date' => $join_date,
                                     'last_log_in' => $last_log_in,
+                                    'reset_token' => ''
                                 ];
 
                                 // if item is added successfuuly them lets redirect the user to the page where they can view the item 
@@ -174,7 +175,7 @@ if(isset($_POST['submit']))
                                     'role' => $role,
                                     'picture' => $picture,
                                     'join_date' => $this->old_join_date,
-                                    'last_log_in' => $this->old_last_log_in,
+                                    'last_log_in' => $this->old_last_log_in
                                 ];
 
 

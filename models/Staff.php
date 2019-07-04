@@ -16,6 +16,8 @@ class Staff{
     private $old_join_date;
     private $old_last_log_in;
 
+    private $reset_token;
+
     public static $delete_error_message = "";
     public static $id_to_delete = "";
 
@@ -61,11 +63,9 @@ class Staff{
             // show edit menu form
             require_once "includes/staff_form_sanitizer.php";
             require_once "includes/staff_edit_member.php";
-        }
-
-          //view all staff table
-          elseif(!isset($_GET['edit_member']) && !isset($_GET['add_member']) && basename($_SERVER['PHP_SELF']) == "staff.php")
-          {
+        } //view all staff table
+        elseif(!isset($_GET['edit_member']) && !isset($_GET['add_member']) && basename($_SERVER['PHP_SELF']) == "staff.php")
+        {
               require_once "includes/delete_modal.php";
   
               $this->showAllStaff();
@@ -75,13 +75,33 @@ class Staff{
                 $this->delete_staff_member();  
               } 
   
-          }
+        }//
           elseif(basename($_SERVER['PHP_SELF']) == "login.php")
-          {
+        {
             require_once "includes/login_form_sanitizer.php";
-            require_once "login_form.php";
-          }
+            require_once "includes/login_form.php";
+        }
+        elseif(basename($_SERVER['PHP_SELF']) == "forgot.php")
+        {  
+            require_once "includes/forgot_form_sanitizer.php";
+            require_once "includes/forgot_form.php";
+        }
+        elseif(basename($_SERVER['PHP_SELF']) == "reset.php")
+        {
+            if(!isset($_GET['reset_token'])){
+                header("Location: login.php");
+            }
+            else
+            {
+                $this->reset_token = filter_var($_GET['reset_token'],FILTER_SANITIZE_STRING);
 
+                require_once "includes/reset_form_sanitizer.php";
+                require_once "includes/reset_form.php";
+            }
+        }
+
+    
+    
     }
 
 
@@ -139,8 +159,8 @@ class Staff{
 // Create
             public function add_new_staff_member($data)
             {
-                $this->db->query("INSERT INTO staff(first_name, last_name, email, password, mobile_number, role, picture, join_date, last_log_in)
-                VALUES(:first_name, :last_name, :email, :password, :mobile_number, :role, :picture, :join_date, :last_log_in )");
+                $this->db->query("INSERT INTO staff(first_name, last_name, email, password, mobile_number, role, picture, join_date, last_log_in, reset_token)
+                VALUES(:first_name, :last_name, :email, :password, :mobile_number, :role, :picture, :join_date, :last_log_in, :reset_token )");
 
                 $this->db->bind(':first_name',$data['first_name']);
                 $this->db->bind(':last_name',$data['last_name']);
@@ -151,6 +171,7 @@ class Staff{
                 $this->db->bind(':picture',$data['picture']);
                 $this->db->bind(':join_date',$data['join_date']);
                 $this->db->bind(':last_log_in',$data['last_log_in']);
+                $this->db->bind(':reset_token',$data['reset_token']);
 
                 if($this->db->execute())
                 {
@@ -370,7 +391,61 @@ class Staff{
             
         }
 
+/// forgot password page methods
+        public function set_reset_token()
+        {  
+            $length = 50;
+            // create some random number for password reset
+            $this->reset_token = bin2hex(openssl_random_pseudo_bytes($length));
 
+        }   
+
+        public function update_token($email)
+        {
+            $this->db->query("UPDATE staff SET reset_token = :reset_token WHERE email = :email ");
+            $this->db->bind(":reset_token",$this->reset_token);
+            $this->db->bind(":email",$email);
+            
+            if($this->db->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+            
+        
+/// reset password page methods
+        public function reset_password($new_password)
+        {
+
+            $this->db->query("SELECT * FROM staff WHERE reset_token = :reset_token");
+            $this->db->bind(":reset_token",$this->reset_token);
+            $result = $this->db->single();        
+
+            $this->reset_token = "";
+
+            $new_password = password_hash($new_password,PASSWORD_DEFAULT); 
+        
+            
+            $this->db->query("UPDATE staff SET password = :password, reset_token = :reset_token WHERE email = :email");
+            $this->db->bind(":password",$new_password);
+            $this->db->bind(":reset_token",$this->reset_token);
+            $this->db->bind(":email",$result->email);
+
+            if($this->db->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
 
 
 }

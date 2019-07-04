@@ -29,22 +29,6 @@ require_once ("includes/navigation.php");
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php require_once ("includes/footer.php"); ?>
 
 
