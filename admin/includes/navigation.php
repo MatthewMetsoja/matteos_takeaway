@@ -12,10 +12,10 @@
     <div id="my-nav" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link <?= $adminHomePageClass ?>" href="index.php"><i class="fas fa-cog"></i> Admin Home</a>
+                <a class="nav-link <?= $adminHomePageClass ?>" href="index.php"><i class="fas fa-cog"></i> Real time live orders</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= $ordersPageClass ?>" href="orders.php"> <i class="fas fa-money-bill-wave"></i> Orders</a>
+                <a class="nav-link <?= $transactionsPageClass ?>" href="transactions.php"> <i class="fas fa-money-bill-wave"></i> Transactions</a>
             </li>
             <!-- <li class="nav-item">
                 <a class="nav-link" href="customers.php"> <i class="fas fa-address-book    "></i> Customers</a>

@@ -228,7 +228,11 @@ class Staff{
                            
                             if($row->join_date == $row->last_log_in)
                             {
-                                    $row->last_log_in = 'Never';
+                                    $last_log_in = 'Never';
+                            }
+                            else
+                            {
+                                  $last_log_in = date('M-d-Y H:i:a',strtotime($row->last_log_in));           
                             } 
         
                             echo 
@@ -241,7 +245,7 @@ class Staff{
                              <td> $row->role </td> 
                              <td> <img class='profile_pic' src='$row->picture'> </td> 
                              <td> $row->join_date</td>
-                             <td> $row->last_log_in</td>
+                             <td> $last_log_in</td>
                              <td> <a class='btn btn-sm btn-dark' href='staff.php?edit_member=$row->id'>Edit</a> </td> 
                              <td> <button value='$row->id' rel='$row->first_name $row->last_name' type='button' javascript='void(0)' class='delete_item_from_menu_btn btn btn-danger btn-sm'>Delete </button> </td> 
                              <tr>";

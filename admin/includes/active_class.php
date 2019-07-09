@@ -5,13 +5,13 @@
 $pageName = basename($_SERVER['PHP_SELF']);
 
 $adminHome_page = 'index.php';
-$orders_page = 'orders.php';
+$transactions_page = 'transactions.php';
 $menu_page = 'menu.php';
 $staff_page = 'staff.php';
 
 
         $adminHomePageClass = '';
-        $ordersPageClass = '';
+        $transactionsPageClass = '';
         $productsPageClass = '';
         $staffPageClass = '';
 
@@ -22,8 +22,8 @@ $staff_page = 'staff.php';
     }
 
 
-    if($pageName === $orders_page){
-      $ordersPageClass = 'active';    
+    if($pageName === $transactions_page){
+      $transactionsPageClass = 'active';    
     }
 
     if($pageName === $menu_page){

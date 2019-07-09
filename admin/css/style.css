@@ -95,6 +95,23 @@ input[type=number] {
 }
 
 
+
+a.month.active
+{
+    color: rgb(69, 175, 42) !important;
+}
+
+a.month.active:hover
+{
+    color: rgb(248, 0, 0) !important;
+}
+
+.table
+{
+border: 2px solid black !important;
+}
+
+
   /* xxxxlarge */ 
   @media only screen and (max-width: 1800px) {
     
