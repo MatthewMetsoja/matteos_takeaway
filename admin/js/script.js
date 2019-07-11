@@ -25,6 +25,34 @@ $(document).ready(function () {
 
 
 
+     function get_orders_as_they_come(){
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("empty_div_for_ajax").innerHTML = this.responseText;
+          }
+      };
+      xmlhttp.open("GET", "live_orders.php");
+      xmlhttp.send();
+
+
+    setInterval(function(){
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("empty_div_for_ajax").innerHTML = this.responseText;
+          }
+      };
+      xmlhttp.open("GET", "live_orders.php");
+      xmlhttp.send();
+
+
+    },6000);
+   }
+
+   get_orders_as_they_come();
+
 
 
 });

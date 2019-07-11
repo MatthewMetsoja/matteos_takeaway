@@ -11,6 +11,17 @@ $results = $order->fetch_basket();
 $items_ordered_as_string = $results->items ;
 
 
+$pusher_options = array(
+    'cluster' => 'eu',
+    'useTLS' => true
+  );
+  $pusher = new Pusher\Pusher(
+     getenv(PUSHER_KEY),
+     getenv(PUSHER_SECRET),
+     getenv(PUSHER_APP_ID),
+    $pusher_options
+  );
+
 
 \Stripe\Stripe::setApiKey(getenv(STRIPE_SK_TEST));
 
@@ -76,6 +87,13 @@ $transaction = new Transaction();
 
 // Add Transaction to DB
 $transaction->addTransaction($transactionData);
+
+
+//  // set up pusher array       
+//  $pusher_data['message'] = $delivery_address;    // must be an array or toastr will not work
+
+//  // send pusher to js
+//  $pusher->trigger('notifications','new_order',$pusher_data);
 
 
 // redirect to success page

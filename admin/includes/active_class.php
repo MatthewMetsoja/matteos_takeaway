@@ -16,25 +16,29 @@ $staff_page = 'staff.php';
         $staffPageClass = '';
 
 
-    if($pageName === $adminHome_page){
+    if($pageName === $adminHome_page)
+    {
        $adminHomePageClass = 'active';
-       Staff::show_success_flash();  Staff::show_error_flash();        
+        
     }
 
 
-    if($pageName === $transactions_page){
+    if($pageName === $transactions_page)
+    {
       $transactionsPageClass = 'active';    
     }
 
-    if($pageName === $menu_page){
+    if($pageName === $menu_page)
+    {
       $productsPageClass = 'active'; 
       Menu::show_success_flash();  Menu::show_error_flash();   
-   }
+    }
    
-    if($pageName === $staff_page){
+    if($pageName === $staff_page)
+    {
       $staffPageClass = 'active';   
       Staff::show_success_flash();  Staff::show_error_flash();    
-   }
+    }
 
 
 //menu page sub menu

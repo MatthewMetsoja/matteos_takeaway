@@ -25,6 +25,13 @@
      <!-- my stylesheet -->
     <link rel="stylesheet" href="./css/style.css">
 
+       <!-- pusher cdn -->
+    <script src="https://js.pusher.com/4.4/pusher.min.js"></script> 
+    
+    <!-- toastr css and js cdns -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     <!-- 
         font-family: 'Luckiest Guy', cursive;
         font-family: 'Italianno', cursive;

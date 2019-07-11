@@ -33,7 +33,7 @@
     <link href="https://fonts.googleapis.com/css?family=Italianno&display=swap" rel="stylesheet">
    
    <!-- add image to title head -->
-    <link rel="icon" href="./images/tiny_flag.png" type="image/png"> 
+    <link rel="icon" href="./images/tiny_flag.png" type="image/png">
     <title>Matteo's Taste of Italy  </title>
 </head>
 <body data-spy="scroll" data-target="#the_spy" data-offset="50">

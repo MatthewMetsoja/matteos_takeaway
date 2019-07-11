@@ -1,8 +1,8 @@
 <?php
-//  if(!isset($_SESSION['id']))
-//  {
-//      header("location: ../index.php"); 
-//  } ?>
+ if(!isset($_SESSION['id']))
+ {
+     header("location: ../index.php"); 
+ } ?>
 <nav class="navbar navbar-expand-sm navbar-light bg-light sticky-top">
     <a href="../index.php" class="navbar-brand"><i class="fas fa-home    "></i> Public Home Page</a>
     <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
