@@ -1,27 +1,28 @@
-<nav id=""  class="nav navbar fixed-top">
-    <a class="navbar-brand"id="back_to_menu_link"  href="index.php"> 
-        Back to Menu  <i  class="fas fa-home"> </i>  
-    </a>
-                 <?php
-                    if(isset($_SESSION['id']))
-                    {?>
-                        <li class="nav-item">
-                           <a  class="nav-link" href="admin/index.php">Admin  <i  class="fas fa-cog"></i> </a>
-                       </li>
-                       <li class="nav-item">
-                           <a  class="nav-link" href="logout.php">Log out  <i class="fas fa-power-off    "></i> </a>
-                       </li>
-                        <?php
-                    } ?>               
+    <nav class="nav navbar fixed-top">
+        <a class="navbar-brand"id="back_to_menu_link"  href="index.php"> 
+            Back to Menu  <i  class="fas fa-home"> </i>  
+        </a>
+            
+        <?php
+            if(isset($_SESSION['id']))
+            { ?>
+                <li class="nav-item">
+                    <a  class="nav-link" href="admin/index.php">Admin  <i  class="fas fa-cog"></i> </a>
+                </li>
+
+                <li class="nav-item">
+                    <a  class="nav-link" href="logout.php">Log out  <i class="fas fa-power-off    "></i> </a>
+                </li> <?php
+            } ?>               
 
 
-                   <div class="text-center">
-                        <img id="kfs_order_nav" src="./images/main_logo.png"  alt="01235 343234" >
-                   </div>
-                  
-              <a id="our_number_nav_link" class="nav-link">  01235 343234 </a> 
-                       
+            <div class="text-center">
+                <img id="kfs_order_nav" src="./images/main_logo.png"  alt="01235 343234" >
+            </div>
+                    
+            <a id="our_number_nav_link" class="nav-link">  01235 343234 </a> 
+                        
 
-</nav>
+    </nav>
 
-    </header>
+</header>

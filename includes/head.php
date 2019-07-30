@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-   <!-- jquery cdn -->
-   <script src="js/jquery.js"></script>
+    <!-- jquery cdn -->
+    <script src="js/jquery.js"></script>
 
-  <!-- font awesome -->
+    <!-- font awesome -->
     <script src="js/all.min.js"></script>
     <link rel="stylesheet" href="css/all.min.css">
-  <!-- popper.js -->
+ 
+    <!-- popper.js -->
     <script src="js/popper.min.js"></script>
 
- <!-- my script -->
- <script src="js/script.js"></script>
+    <!-- my script -->
+    <script src="js/script.js"></script>
 
     <!-- bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -35,7 +35,9 @@
    <!-- add image to title head -->
     <link rel="icon" href="./images/tiny_flag.png" type="image/png">
     <title>Matteo's Taste of Italy  </title>
+
 </head>
+
 <body data-spy="scroll" data-target="#the_spy" data-offset="50">
-    <header>
+  <header>
        

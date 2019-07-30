@@ -1,52 +1,54 @@
 <?php
         
-class My_customers{
+class My_customers
+{
             
-            private $db;
+    private $db;
 
-            public function __construct()
-            {
-                $this->db = new Database;
-            }
-                 
-         
-            public function addCustomer($data)
-            { //Prepare query
-                $this->db->query("INSERT INTO customers(id, first_name, last_name, email, delivery_address, postcode, phone_number) 
-                VALUES( :id, :first_name, :last_name, :email, :delivery_address, :postcode, :phone_number ) " ); 
-
-             //Bind Values
-                $this->db->bind(':id', $data['id']);
-                $this->db->bind(':first_name', $data['first_name']);
-                $this->db->bind(':last_name',$data['last_name']);
-                $this->db->bind(':email', $data['email']);
-                $this->db->bind(':delivery_address', $data['delivery_address']);
-                $this->db->bind(':postcode', $data['postcode']);
-                $this->db->bind(':phone_number', $data['phone_number']);
-
-             // Execute 
-                    if($this->db->execute())
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
-            }
-
-
+    public function __construct()
+    {
+        $this->db = new Database;
+    }
             
-            public function getCustomers(){
+    
+    public function addCustomer($data) //Prepare query
+    { 
+        $this->db->query("INSERT INTO customers(id, first_name, last_name, email, delivery_address, postcode, phone_number) 
+        VALUES( :id, :first_name, :last_name, :email, :delivery_address, :postcode, :phone_number ) " ); 
 
-                $this->db->query('SELECT * FROM customers ORDER BY created_at DESC ');
+        //Bind Values
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':first_name', $data['first_name']);
+        $this->db->bind(':last_name',$data['last_name']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':delivery_address', $data['delivery_address']);
+        $this->db->bind(':postcode', $data['postcode']);
+        $this->db->bind(':phone_number', $data['phone_number']);
 
-                $results = $this->db->resultset();
+        // Execute 
+        if($this->db->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
-                return $results;
+    }
 
-            }
+
+    
+    public function getCustomers()
+    {
+
+        $this->db->query('SELECT * FROM customers ORDER BY created_at DESC ');
+
+        $results = $this->db->resultset();
+
+        return $results;
+
+    }
 
 
 }

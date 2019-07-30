@@ -1,5 +1,4 @@
 <?php
-
 require_once "config/pdo_db.php";
 require_once "models/Basket.php";
 

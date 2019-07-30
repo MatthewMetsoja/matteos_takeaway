@@ -1,5 +1,4 @@
 <?php
-
 require_once "vend_load.php";
 require_once "config/pdo_db.php";
 require_once "models/Basket.php";
@@ -15,6 +14,7 @@ $pusher_options = array(
     'cluster' => 'eu',
     'useTLS' => true
   );
+
   $pusher = new Pusher\Pusher(
      getenv(PUSHER_KEY),
      getenv(PUSHER_SECRET),
@@ -39,9 +39,8 @@ $token = $POST['stripeToken'];
 
 // Create a customer in Stripe
 $customer = \Stripe\Customer::create(array(
-"email" => $email,
-"source" => $token
-
+    "email" => $email,
+    "source" => $token
 ));
 
 // Charge Customer
@@ -52,42 +51,38 @@ $charge = \Stripe\Charge::create(array(
     "customer" => $customer->id
 ));
 
-    //Customer Data
-    $customerData = array(
-        'id' => $charge->customer,
-        'first_name' => $first_name,
-        'last_name' => $last_name,
-        'email' => $email,
-        'delivery_address' => $delivery_address,
-        'postcode' => $postcode,
-        'phone_number' => $phone_number
-    );
+//Customer Data
+$customerData = array(
+    'id' => $charge->customer,
+    'first_name' => $first_name,
+    'last_name' => $last_name,
+    'email' => $email,
+    'delivery_address' => $delivery_address,
+    'postcode' => $postcode,
+    'phone_number' => $phone_number
+);
 
-   
+/// Instantiate Customer
+$my_customer = new My_customers();
 
-    // // Instantiate Customer
-    $my_customer = new My_customers();
-
-    // Add Customer to DB
-    $my_customer->addCustomer($customerData);
+// Add Customer to DB
+$my_customer->addCustomer($customerData);
 
 
-     //transaction Data
-        $transactionData = array(
-            'id' => $charge->id,
-            'customer_id' => $charge->customer,
-            'items_ordered' => $items_ordered_as_string,
-            'amount' => $order->basket_price_nav(),
-            'status' => $charge->status,
-        );
-
+//transaction Data
+$transactionData = array(
+    'id' => $charge->id,
+    'customer_id' => $charge->customer,
+    'items_ordered' => $items_ordered_as_string,
+    'amount' => $order->basket_price_nav(),
+    'status' => $charge->status,
+);
 
 // Instantiate transaction
 $transaction = new Transaction();
 
 // Add Transaction to DB
 $transaction->addTransaction($transactionData);
-
 
 //  // set up pusher array       
 //  $pusher_data['message'] = $delivery_address;    // must be an array or toastr will not work

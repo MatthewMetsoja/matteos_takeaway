@@ -1,7 +1,8 @@
 <?php
 
 
-class Menu{
+class Menu
+{
 
     private $db;
 
@@ -25,7 +26,9 @@ class Menu{
     public static $error_flash;
     public static $success_flash;
        
-    /////  CONSTRUCTOR ////
+
+/////////////////  CONSTRUCTOR ///////////////////
+
     public function __construct()
     {
         $this->db = new Database;
@@ -49,9 +52,9 @@ class Menu{
 
         }
 
-        if(isset($_GET['add_item']))
+        else if(isset($_GET['add_item']))
         {
-         filter_var($_GET['add_item'],FILTER_SANITIZE_STRING);
+            filter_var($_GET['add_item'],FILTER_SANITIZE_STRING);
 
             // show edit menu form
             require_once "includes/menu_form_sanitizer.php";
@@ -59,7 +62,7 @@ class Menu{
 
         }
 
-        if(isset($_GET['edit_item']))
+        else if(isset($_GET['edit_item']))
         {
             // sanitize get
             $this->edit_id = filter_var($_GET['edit_item'],FILTER_SANITIZE_STRING);
@@ -68,7 +71,9 @@ class Menu{
             $this->db->query("SELECT categories.title, m.id AS m_id, m.category_id AS m_cid, 
             m.name,m.price,m.description,m.vegetarian,m.nut_traces FROM menu AS m
             LEFT JOIN categories ON m.category_id = categories.id  WHERE m.id = :edit_id" );
+           
             $this->db->bind(':edit_id',$this->edit_id);
+            
             $this->db->execute();
             
             $result = $this->db->single();
@@ -90,7 +95,7 @@ class Menu{
 
 
 
-
+/// Nav
       public static function set_success_flash_message($message)
          {
             self::$success_flash = filter_var($message, FILTER_SANITIZE_STRING);
@@ -141,7 +146,7 @@ class Menu{
 
 
 
-///// methods for public pages ///////// 
+///////////// PUBLIC PAGE METHODS ///////////////// 
 
     public function getMenu($category_id)
     {
@@ -180,52 +185,53 @@ class Menu{
         $num_rows = $this->getMenuItemCount($category_id);
     
         //check if count is odd or even
-        if($num_rows % 2){
+        if($num_rows % 2)
+        {
             // value is odd so add 1
             $num_rows = $num_rows + 1;
         }
 
         $half_rows = $num_rows/2;
         
-        foreach($results as $result){
-             
-             
-            if($result->vegetarian == true){
+        foreach($results as $result)
+        {
+                   
+            if($result->vegetarian == true)
+            {
                 $veg = "<span class='text-success'> (V) </span>";
-            }else{
+            }
+            else
+            {
                 $veg = "";
             } 
 
-            if($result->nut_traces == true){
+            if($result->nut_traces == true)
+            {
                 $nuts = "<span class='text-danger'> (N) </span>";
-            }else{
+            }
+            else
+            {
                 $nuts = "";
             } 
             
             // show menu with bootstrap break half way
-
             echo "<span class='menu_head'>".$result->name."  ".$veg. "     " .$nuts.  " </span><br>";
-            
             echo  $result->description. "<br>";
             echo "£".$result->price."  ". " <button type='button' data='$result->price' value='$result->name' rel='$result->m_id' id='' class='add_to_basket_btn btn btn-sm btn-warning'>Add to order </button><br>";
             echo  "<br><br>"; 
            
-
             $count++;
 
-            if($count == $half_rows){
-              echo "</div> <div class='col-6 text-center'>";
+            if($count == $half_rows)
+            {
+                echo "</div> <div class='col-6 text-center'>";
             }
-
 
         }
 
     }
 
-
-
 /////////// C R U D (ADMIN) methods /////////
-
     public static function delete_item_verification()
     {
         if(isset($_POST['submit_delete']))
@@ -250,6 +256,7 @@ class Menu{
             {
                 self::$delete_error_message = "Delete failed, Passwords must not be empty!";
             }
+
             if(empty($password_confirm) || $password == "")
             {
                 self::$delete_error_message = "Delete failed, Passwords must not be empty!";
@@ -276,13 +283,9 @@ class Menu{
 
 
     public function showMenuItems_Admin()
-    {
-       
-                
+    {         
         $results = $this->getMenu($this->category_id_from_get);
-
-         
-        
+   
         echo "
             <table class='table table-hover table-responsive table-inverse mr-4 ml-2'>
                 <thead>
@@ -298,46 +301,45 @@ class Menu{
                         <th width='4%'>Delete</th>
                     </tr>
                 </thead>
+               
                 <tbody>";
+                    foreach($results as $row)
+                    {
+                    
+                        if($row->vegetarian == true)
+                        {
+                                $veg = 'Yes';
+                        }else
+                        {
+                        $veg = 'No';
+                        } 
 
-
-                foreach($results as $row){
-                   
-                    if($row->vegetarian == true)
-                    {
-                            $veg = 'Yes';
-                    }else
-                    {
-                       $veg = 'No';
-                    } 
-
-                    if($row->nut_traces == true)
-                    {
-                      $nuts = 'Yes';
-                    }else
-                    {
-                      $nuts = 'No';
-                    } 
-                
-                    echo 
-                    "<tr>
-                     <td> $row->m_id </td> 
-                     <td> $row->title</td> 
-                     <td> $row->name </td> 
-                     <td> £$row->price </td> 
-                     <td> $row->description </td> 
-                     <td> $veg </td> 
-                     <td> $nuts </td> 
-                     <td> <a class='btn btn-sm btn-dark' href='menu.php?edit_item=$row->m_id'>Edit</a> </td> 
-                     <td> <button value='$row->m_id' rel='$row->name' type='button' javascript='void(0)' class='delete_item_from_menu_btn btn btn-danger btn-sm'>Delete </button> </td> 
-                     <tr>";
-                }
+                        if($row->nut_traces == true)
+                        {
+                        $nuts = 'Yes';
+                        }else
+                        {
+                        $nuts = 'No';
+                        } 
+                    
+                        echo 
+                        "<tr>
+                            <td> $row->m_id </td> 
+                            <td> $row->title</td> 
+                            <td> $row->name </td> 
+                            <td> £$row->price </td> 
+                            <td> $row->description </td> 
+                            <td> $veg </td> 
+                            <td> $nuts </td> 
+                            <td> <a class='btn btn-sm btn-dark' href='menu.php?edit_item=$row->m_id'>Edit</a> </td> 
+                            <td> <button value='$row->m_id' rel='$row->name' type='button' javascript='void(0)' class='delete_item_from_menu_btn btn btn-danger btn-sm'>Delete </button> </td> 
+                        <tr>";
+                    }
             
-          
-          echo "</tbody>
+            echo "
+                </tbody>
         
-              </table>";
-
+            </table>";
     }
 
 
@@ -348,19 +350,18 @@ class Menu{
 
         $results = $this->db->resultset();
 
-        // add item form if it has not been submited with errors
-        if(!isset($_POST['category']) && !isset($this->old_category_id))
+       
+        if(!isset($_POST['category']) && !isset($this->old_category_id))  // add item form if it has not been submited with errors
         {
 
-            echo "<option  default selected>** Please choose a category **</option>"; 
+                echo "<option  default selected>** Please choose a category **</option>"; 
 
             foreach($results as $result)
             {
-            echo "<option value='$result->id'> $result->title </option>"; 
+                echo "<option value='$result->id'> $result->title </option>"; 
             }
         }
-        //// for update item form 
-        elseif(!isset($_POST['category']) && isset($this->old_category_id))
+        else if(!isset($_POST['category']) && isset($this->old_category_id))  ////  update item form 
         {
 
             foreach($results as $result)
@@ -376,8 +377,8 @@ class Menu{
 
             }    
         }
-        //// for insert item form that has been filled out with errors but select was filled correctly (keep value)
-        else
+    
+        else   ////  insert item form that has been filled out with errors but select was filled correctly (keep value)
         {
             foreach($results as $result)
             {
@@ -390,10 +391,7 @@ class Menu{
                     echo "<option value='$result->id'> $result->title </option>"; 
                 }
         
-        
-        
             }
-
 
         }
     }  
@@ -401,18 +399,18 @@ class Menu{
     public function add_new_item($data)
     {
         $this->db->query("INSERT INTO menu(category_id, name, price, description, vegetarian, nut_traces)
-         VALUES(:cat_id, :name, :price, :description, :vegetarian, :nut_traces)");
+        VALUES(:cat_id, :name, :price, :description, :vegetarian, :nut_traces)");
 
-         $this->db->bind(':cat_id',$data['category']);
-         $this->db->bind(':name',$data['name']);
-         $this->db->bind(':price',$data['price']);
-         $this->db->bind(':description',$data['description']);
-         $this->db->bind(':vegetarian',$data['vegetarian']);
-         $this->db->bind(':nut_traces',$data['nut_traces']);
+        $this->db->bind(':cat_id',$data['category']);
+        $this->db->bind(':name',$data['name']);
+        $this->db->bind(':price',$data['price']);
+        $this->db->bind(':description',$data['description']);
+        $this->db->bind(':vegetarian',$data['vegetarian']);
+        $this->db->bind(':nut_traces',$data['nut_traces']);
 
         if($this->db->execute())
         {
-        return true; 
+            return true; 
         }
         else
         {
@@ -421,11 +419,11 @@ class Menu{
       
     }
 
-     public function update_item($data)
-     {
+    public function update_item($data)
+    {
         $this->db->query("UPDATE menu SET category_id = :cat_id, name = :name, price = :price,
         description = :description, vegetarian = :vegetarian, nut_traces =:nut_traces WHERE id = :edit_id");
-        
+    
         $this->db->bind(':cat_id',$data['category']);
         $this->db->bind(':name',$data['name']);
         $this->db->bind(':price',$data['price']);
@@ -436,14 +434,14 @@ class Menu{
 
         if($this->db->execute())
         {
-           return true;
+            return true;
         }
         else
         {
             return false;
         }
 
-     }
+    }
 
 
 

@@ -10,8 +10,6 @@ $orders = new Transaction;
 $orders->get_orders_for_the_day();
 
 
-
-
 ?>
 
 

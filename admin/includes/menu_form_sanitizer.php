@@ -1,5 +1,6 @@
 <?php
-$msg = [
+$msg = 
+[
     "name" => "",
     "category" => "",
     "price" => "",
@@ -19,7 +20,6 @@ if(isset($_POST['submit']))
     $vegetarian = trim($POST['vegetarian']);
     $nut_traces = trim($POST['nut_traces']);
     
-
     // validate input
     if(empty($name) || $name === "")
     {
@@ -33,7 +33,8 @@ if(isset($_POST['submit']))
 
   
     // check pennys only has 2 decimals
-    if( (strlen(strchr($price,'.')) -1 ) !== 2){
+    if( (strlen(strchr($price,'.')) -1 ) !== 2)
+    {
         $msg['price'] = "Please enter the price correctly (pounds.pennys | 0.00 ) ";
     }
 
@@ -57,8 +58,9 @@ if(isset($_POST['submit']))
     {
         $msg['nut_traces'] = "Choose if meal has nut traces or Not";
     }
-
-    else{
+    
+    else if(!empty($name) && !empty($price) && !empty($category) && !empty($description) && $vegetarian == "1" || $vegetarian == "0" && $nut_traces == "1" || $nut_traces == "0" )
+    {
         
         $data = [
             'name' => $name,
@@ -67,7 +69,7 @@ if(isset($_POST['submit']))
             'description' => $description,
             'vegetarian' => $vegetarian,
             'nut_traces' => $nut_traces,
-         ];
+        ];
 
                 if(isset($_GET['add_item']))
                 {
@@ -92,6 +94,6 @@ if(isset($_POST['submit']))
 
                 }
 
-     }
+    }
  
 }

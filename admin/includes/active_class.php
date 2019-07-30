@@ -19,7 +19,7 @@ $staff_page = 'staff.php';
     if($pageName === $adminHome_page)
     {
        $adminHomePageClass = 'active';
-        
+       Menu::show_success_flash();  Menu::show_error_flash();   
     }
 
 
@@ -42,51 +42,74 @@ $staff_page = 'staff.php';
 
 
 //menu page sub menu
-   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 1){
+   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 1)
+   {
       $starters_class = "active";
-   }else
+   }
+   else
    {
       $starters_class = "";
    }
-   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 2){
+
+   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 2)
+   {
       $pizza_class = "active";
-   }else
+   }
+   else
    {
       $pizza_class = "";
    }
-   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 3){
+
+   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 3)
+   {
       $pasta_class = "active";
-   }else
+   }
+   else
    {
       $pasta_class = "";
    }
-   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 4){
+
+   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 4)
+   {
       $rissoto_class = "active";
-   }else
+   }
+   else
    {
       $rissoto_class = "";
    }
-   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 5){
+
+   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 5)
+   {
       $fish_and_grill_class = "active";
-   }else
+   }
+   else
    {
       $fish_and_grill_class = "";
    }
-   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 6){
+
+   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 6)
+   {
       $sides_class = "active";
-   }else
+   }
+   else
    {
       $sides_class = "";
    }
-   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 7){
+   
+   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 7)
+   {
       $deserts_class = "active";
-   }else
+   }
+   else
    {
       $deserts_class = "";
    }
-   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 8){
+
+   if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 8)
+   {
       $drinks_class = "active";
-   }else
+   }
+   else
    {
       $drinks_class = "";
    }

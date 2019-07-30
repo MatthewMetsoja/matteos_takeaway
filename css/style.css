@@ -538,9 +538,6 @@ STRIPE PAYMENT
 
 }
 
-@media only screen and (max-width: 1348px) {
-    
-}
 
 
  /* xxlarge */ 
@@ -621,7 +618,7 @@ STRIPE PAYMENT
 
 
  #main_jumbo{ 
-     height: 470px !important;  
+     height: 500px !important;  
  }
 
  #order_jumbo{
@@ -813,7 +810,7 @@ font-size: 12px !important;
  }
 
  #main_jumbo{ 
-     height: 510px !important;  
+     height: 520px !important;  
  }
 
 
@@ -863,7 +860,7 @@ font-size: 12px !important;
        
     #main_jumbo{ 
         height: 540px !important; 
-        padding-top: 50px !important;  
+        padding-top: 30px !important;  
     }
 
     #order_jumbo{
@@ -974,6 +971,13 @@ font-size: 12px !important;
  /*  Small */
  @media only screen and (max-width: 575px) {
    
+    #main_jumbo{
+        padding-top: 50px !important;  
+        margin-top: 60px !important;
+         height: 620px !important;  
+     }
+
+
     #back_to_menu_link{
         margin-top: -7px !important;
     }
@@ -1074,9 +1078,10 @@ font-size: 12px !important;
     }
 
    
-    #main_jumbo{ 
-        height: 600px !important;  
-    }
+    /* #main_jumbo{ 
+       margin-top: 60px !important;
+        height: 640px !important;  
+    } */
 
     #order_jumbo{
         height: 360px !important;

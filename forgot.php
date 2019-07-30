@@ -7,9 +7,6 @@ require_once "includes/navigation_about_us.php";
 
 $forgot = new Staff; 
         
-?>
-
-
-
-
-<?php require_once("includes/footer.php"); ?>
+require_once ("includes/footer.php"); 
+ 
+ ?>

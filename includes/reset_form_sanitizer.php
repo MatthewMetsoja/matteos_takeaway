@@ -26,7 +26,6 @@ if(isset($_POST['submit']))
         $msg['password'] = "Password can not be left empty";
     }
 
-
     else
     {
 

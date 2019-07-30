@@ -9,7 +9,8 @@ session_start();
 	 * 	Binds params to values
 	 *  Returns rows and results
    */
-class Database {
+class Database 
+{
 	private $host = "localhost";
 	private $user = "root";
 	private $pass = "root";
@@ -19,7 +20,8 @@ class Database {
 	private $error;
 	private $stmt;
 	
-	public function __construct() {
+	public function __construct() 
+	{
 		// Set DSN
 		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
 		$options = array (
@@ -36,14 +38,18 @@ class Database {
 	}
 	
 	// Prepare statement with query
-	public function query($query) {
+	public function query($query) 
+	{
 		$this->stmt = $this->dbh->prepare($query);
 	}
 	
 	// Bind values
 	public function bind($param, $value, $type = null) {
-		if (is_null ($type)) {
-			switch (true) {
+		
+		if (is_null ($type)) 
+		{
+			switch (true) 
+			{
 				case is_int ($value) :
 					$type = PDO::PARAM_INT;
 					break;
@@ -57,34 +63,44 @@ class Database {
 					$type = PDO::PARAM_STR;
 			}
 		}
+
 		$this->stmt->bindValue($param, $value, $type);
+
 	}
 	
 	// Execute the prepared statement
-	public function execute(){
+	public function execute()
+	{
 		return $this->stmt->execute();
 	}
 	
 	// Get result set as array of objects
-	public function resultset(){
+	public function resultset()
+	{
 		$this->execute();
+
 		return $this->stmt->fetchAll(PDO::FETCH_OBJ);
 	}
 	
 	// Get single record as object
-	public function single(){
+	public function single()
+	{
 		$this->execute();
+
 		return $this->stmt->fetch(PDO::FETCH_OBJ);
 	}
 	
 	// Get record row count
-	public function rowCount(){
+	public function rowCount()
+	{
 		return $this->stmt->rowCount();
 	}
 	
 	// Returns the last inserted ID
-	public function lastInsertId(){
+	public function lastInsertId()
+	{
 		return $this->dbh->lastInsertId();
 	}
+	
 }
 
