@@ -1,4 +1,5 @@
 # restaurant
-Restaurant  PHP application.  I am making with front for users and back for staff/admin
+Restaurant  PHP application. Front for customers with stripe payment api and 
+back for staff/admin.
 
-This is a OOP project that will use HTML5 CSS BOOTSTRAP. jquery/Javascript.
+OOP project with HTML5 CSS BOOTSTRAP. jquery/Javascript.

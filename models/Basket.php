@@ -156,7 +156,6 @@ class Basket
          }        
             
       }
- 
 
 
       public function basket_count_nav()
