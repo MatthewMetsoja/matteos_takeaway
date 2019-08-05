@@ -10,7 +10,7 @@ require_once "includes/navigation.php";
 
 ?>
 
-<div id="main_menu_div" data-spy="scroll" data-target="the_spy" data-offset="0">
+<div id="main_menu_div">
   <span class="anchor" id="contact"></span>
   
     <section id="contact" class="active"> 
