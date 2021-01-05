@@ -19,10 +19,10 @@ $logger->pushHandler(new StreamHandler(__DIR__.'/data_log.txt', Logger::DEBUG));
 $logger->pushHandler(new FirePHPHandler());
 
 // set up hide environment 
-$dotenv = Dotenv\Dotenv::create(__DIR__.'/');
-$dotenv->load();
+// $dotenv = Dotenv\Dotenv::create(__DIR__.'/');
+// $dotenv->load();
 
 // You can now use your logger
-// $logger->info('My logger is now ready');
+$logger->info('My logger is now ready');
 
 ?>

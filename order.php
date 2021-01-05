@@ -7,7 +7,7 @@ require_once "includes/head.php";
 $order = new Basket;
 require_once "includes/navigation_order.php";
  
-if(isset( $_COOKIE[getenv(SEC_BASKET_COOKIE)] ) &&  $order->basket_price_nav() !== "0.00" )
+if(isset( $_COOKIE['BASKET_COOKIE'] ) &&  $order->basket_price_nav() !== "0.00" )
 { ?>
 
     <div id="order_jumbo" class="jumbotron jumbotron-fluid">

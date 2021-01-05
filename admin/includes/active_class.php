@@ -71,11 +71,11 @@ $staff_page = 'staff.php';
 
    if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 4)
    {
-      $rissoto_class = "active";
+      $Meat Dishes_class = "active";
    }
    else
    {
-      $rissoto_class = "";
+      $Meat Dishes_class = "";
    }
 
    if($pageName == $menu_page && (isset($_GET['category'])) && $_GET['category'] == 5)

@@ -44,12 +44,12 @@
             <div class="col-sm-12">
                 <div class="alert-danger"> <?= $msg['vegetarian'] ?></div>
                     No  <input type="radio"  <?php 
-                    if(isset($this->old_vegatarian) && $this->old_vegatarian == "0" ){echo "checked";}
+                    if(isset($this->old_vegeterian) && $this->old_vegeterian == "0" ){echo "checked";}
                     elseif(isset($vegetarian) && $vegetarian == "0"){echo "checked";} ?>  
                     value="0" name="vegetarian" id="inputName">  &nbsp; &nbsp; 
             
                     Yes <input type="radio" <?php  
-                    if(isset($this->old_vegatarian) && $this->old_vegatarian == "1" ){echo "checked";}
+                    if(isset($this->old_vegeterian) && $this->old_vegeterian == "1" ){echo "checked";}
                     elseif(isset($vegetarian) && $vegetarian == "1"){echo "checked";} ?>  
                     value="1" name="vegetarian" id="inputName">
             </div>

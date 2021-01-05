@@ -37,7 +37,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#rissoto">Rissoto</a>
+                <a class="nav-link" href="#Meat Dishes">Meat Dishes</a>
             </li>
 
             <li class="nav-item">
@@ -57,7 +57,7 @@
             </li>
         
             <?php 
-            if(isset($_COOKIE[getenv(SEC_BASKET_COOKIE)]))
+            if(isset($_COOKIE['BASKET_COOKIE'] ))
             { ?> 
                 <a  href="order.php" id="checkout_btn" class="btn btn-sm btn-success"> 
                     <i class="fas fa-pizza-slice"></i> Check order  <?= $basket->basket_count_nav(); ?> 

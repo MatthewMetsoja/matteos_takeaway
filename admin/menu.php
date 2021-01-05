@@ -27,9 +27,9 @@ Menu::delete_item_verification();
                         <a class="sub_menu <?= $starters_class ?>" href="menu.php?category=1">Starters </a> 
                         <a class="sub_menu <?= $pizza_class ?>" href="menu.php?category=2">Pizza</a> 
                         <a class="sub_menu <?= $pasta_class ?>" href="menu.php?category=3">Pasta</a> 
-                        <a class="sub_menu <?= $rissoto_class ?>" href="menu.php?category=4">Rissoto</a> 
-                        <a class="sub_menu <?= $fish_and_grill_class ?>" href="menu.php?category=5">Fish & grill </a> 
-                        <a class="sub_menu <?= $sides_class ?>" href="menu.php?category=6">Sides </a> 
+                        <a class="sub_menu <?= $Meat Dishes_class ?>" href="menu.php?category=4">Meat Dishes</a> 
+                        <a class="sub_menu <?= $fish_and_grill_class ?>" href="menu.php?category=5">Fish & grill</a> 
+                        <a class="sub_menu <?= $sides_class ?>" href="menu.php?category=6">Sides</a> 
                         <a class="sub_menu <?= $deserts_class ?>" href="menu.php?category=7">Deserts</a> 
                         <a class="sub_menu <?= $drinks_class ?>" href="menu.php?category=8">Drinks</a> 
                 </div>  <?php

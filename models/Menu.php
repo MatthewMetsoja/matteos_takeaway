@@ -17,7 +17,7 @@ class Menu
     private $old_category_name;
     private $old_description;
     private $old_price;
-    private $old_vegatarian;
+    private $old_vegetarian;
     private $old_nut_traces;
 
     public static $delete_error_message = "";
@@ -83,7 +83,7 @@ class Menu
             $this->old_category_name = $result->title;
             $this->old_price = $result->price;
             $this->old_description = $result->description;
-            $this->old_vegatarian = $result->vegetarian;
+            $this->old_vegetarian = $result->vegetarian;
             $this->old_nut_traces = $result->nut_traces;
         
             // show edit menu form
@@ -121,9 +121,9 @@ class Menu
 
          if(isset($_SESSION['success_flash']))
          {
-         echo "<div id='invis_banner' class='login_banner bg-success'> <p class='text-light text-center'>".$_SESSION['success_flash']." </p> </div> "; 
+            echo "<div id='invis_banner' class='login_banner bg-success'> <p class='text-light text-center'>".$_SESSION['success_flash']." </p> </div> "; 
 
-         unset($_SESSION['success_flash']);
+            unset($_SESSION['success_flash']);
             
          }
       
@@ -133,11 +133,14 @@ class Menu
       public static function show_error_flash()
       {
 
-         if(isset($_SESSION['error_flash']))
+         if(isset($_SESSION['error_flash'])){
+            
+            echo "<div id='invis_banner' class='login_banner bg-danger'> <p class='text-light text-center'>".$_SESSION['error_flash']." </p> </div> "; 
          
-         echo "<div id='invis_banner' class='login_banner bg-danger'> <p class='text-light text-center'>".$_SESSION['error_flash']." </p> </div> "; 
+            unset($_SESSION['error_flash']);            
+         }
          
-         unset($_SESSION['error_flash']);            
+       
             
       }
 
@@ -217,7 +220,11 @@ class Menu
             // show menu with bootstrap break half way
             echo "<span class='menu_head'>".$result->name."  ".$veg. "     " .$nuts.  " </span><br>";
             echo  $result->description. "<br>";
-            echo "£".$result->price."  ". " <button type='button' data='$result->price' value='$result->name' rel='$result->m_id' id='' class='add_to_basket_btn btn btn-sm btn-warning'>Add to order </button><br>";
+            echo "£".$result->price."<br>"; 
+            
+            echo " <button type='button' data='$result->price' value='$result->name' rel='$result->m_id' id='' class='add_to_basket_btn mt-2 btn btn-sm btn-warning'>
+                        Add to order 
+                    </button><br>";
             echo  "<br><br>"; 
            
             $count++;
@@ -351,7 +358,7 @@ class Menu
         $results = $this->db->resultset();
 
        
-        if(!isset($_POST['category']) && !isset($this->old_category_id))  // add item form if it has not been submited with errors
+        if(!isset($_POST['category']) && !isset($this->old_category_id))  // add item form if it has not been submitted with errors
         {
 
                 echo "<option  default selected>** Please choose a category **</option>"; 

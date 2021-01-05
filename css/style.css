@@ -1,5 +1,8 @@
 body{
     position: relative;
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
 }
 
 
@@ -182,7 +185,7 @@ margin-top: -18px;
 .menu_head{
  
     font-family: 'Luckiest Guy', cursive;
-
+    text-decoration: underline;
     font-size: 1.5em;
   
 }
@@ -249,6 +252,9 @@ span.anchor {
     margin-bottom: 130px;
 }
 
+.menu-items{
+    padding: 1rem;
+}
 
 /* hide number spinner */
 input[type=number]::-webkit-outer-spin-button,

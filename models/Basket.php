@@ -161,7 +161,7 @@ class Basket
       public function basket_count_nav()
       {
             
-         $cookie_name = getenv(SEC_BASKET_COOKIE);
+         $cookie_name = 'BASKET_COOKIE' ;
 
          $item_counter = 0;
 
@@ -201,7 +201,7 @@ class Basket
 
       public function basket_price_nav()
       {
-            $cookie_name = getenv(SEC_BASKET_COOKIE);
+            $cookie_name = 'BASKET_COOKIE' ;
 
             $total_price = 0;
 
@@ -280,7 +280,7 @@ class Basket
       public function delete_basket()
       {
          
-         $cookie_name = getenv(SEC_BASKET_COOKIE);
+         $cookie_name = 'BASKET_COOKIE' ;
 
          $basket_id = $_COOKIE[$cookie_name];
 

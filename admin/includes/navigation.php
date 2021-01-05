@@ -28,7 +28,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="../log_out.php"><i class="fas fa-power-off    "></i> Log out</a>
+                <a class="nav-link" href="../log_out.php"><i class="fas fa-power-off"></i> Log out</a>
             </li>
         </ul>
     </div>

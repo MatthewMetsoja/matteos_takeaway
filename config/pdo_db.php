@@ -13,8 +13,8 @@ class Database
 {
 	private $host = "localhost";
 	private $user = "root";
-	private $pass = "root";
-	private $dbname = "restaurant";
+	private $pass = "";
+	private $dbname = "italian_restaurant";
 	
 	private $dbh;
 	private $error;
